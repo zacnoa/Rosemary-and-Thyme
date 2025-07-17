@@ -5,7 +5,8 @@ export const initialState={
     ingredientsImage:"",
     ingredients:[],
     instructions:[],
-    aside:[]
+    aside:[],
+    asideImage:""
 };
 
 
@@ -71,6 +72,26 @@ export function RecipeReducer(state,action){
                 return{
                     ...state,
                     instructions:newInstructions
+                }
+            }
+            case "edited_asideImage":{
+                return{
+                    ...state,
+                    asideImage:action.image
+                }
+            }
+            case "edited_aside":{
+                const newAside=[...state.aside];
+                newAside[action.index]=action.new_value;
+                return{
+                    ...state,
+                    aside:newAside
+                }            
+            }
+            case "added_aside":{
+                return{
+                    ...state,
+                    aside:[...state.aside,""]
                 }
             }
 
