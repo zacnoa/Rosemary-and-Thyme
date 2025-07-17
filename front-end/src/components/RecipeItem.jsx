@@ -2,7 +2,7 @@ import react from 'react';
 
 
 
-export function IngredientItem({value, index, dispatch,type }) {
+export function RecipeItem({value, index, dispatch,type }) {
 
 
     const handleChange=(event)=>{

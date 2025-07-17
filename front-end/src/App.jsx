@@ -6,7 +6,7 @@ import axios from 'axios';
 import { initialState,RecipeReducer} from './components/RecipeReducer.jsx';
 import { TitleDescription } from "./components/TitleDescription.jsx";
 import { Ingredients } from "./components/Ingredients.jsx";
-
+import { Instructions } from "./components/Instructions.jsx";
 
 function App() {
 
@@ -21,6 +21,7 @@ function App() {
     <>
       <TitleDescription title={recipe.title} description={recipe.description} dispatch={dispatch} image={recipe.headerImage}/>
       <Ingredients ingredients={recipe.ingredients} dispatch={dispatch} image={recipe.ingredientsImage}/>
+      <Instructions instructions={recipe.instructions} dispatch={dispatch}/>
       
     </>
   )
