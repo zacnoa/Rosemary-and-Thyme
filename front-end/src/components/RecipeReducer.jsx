@@ -95,6 +95,13 @@ export function RecipeReducer(state,action){
                 }
             }
 
+            case "reset":{
+                return initialState;
+            }
+            case "request_recipe":{
+                return action.object
+            }
+
             default:{
                 return state;
             }

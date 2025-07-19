@@ -11,6 +11,38 @@ import { Aside } from "./components/Aside.jsx";
 
 function App() {
 
+  const reset=()=>{
+    dispatch({
+      type:"reset"
+    })
+  }
+  const handleClick=()=>{
+    console.log(recipe);
+      axios.post("http://localhost:4000/recipe",recipe)
+      .then((response)=>{
+          console.log("Recipe saved successfully:", response.data);
+      })
+      .catch((error)=>{
+          console.error("Error saving recipe:", error);
+      });
+      reset();
+  }
+  const handleFetch=()=>{
+    axios.get("http://localhost:4000/recipe")
+    .then((response)=>{
+      console.log("Latest recipe:",response.data);
+      const data=response.data;
+      dispatch({
+        type:"request_recipe",
+        object:data
+      })
+     
+    })
+    .catch((error)=>{
+      console.error("Error fetching recipe:",error);
+    });
+
+  }
 
 
 
@@ -24,6 +56,9 @@ function App() {
       <Ingredients ingredients={recipe.ingredients} dispatch={dispatch} image={recipe.ingredientsImage}/>
       <Instructions instructions={recipe.instructions} dispatch={dispatch}/>
       <Aside dispatch={dispatch} aside={recipe.aside} image={recipe.asideImage}/>
+      <button onClick={handleClick}>Finish</button>
+      <button onClick={handleFetch}>show latest</button>
+
       
     </>
   )
