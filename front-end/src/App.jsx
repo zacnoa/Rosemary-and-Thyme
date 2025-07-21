@@ -8,6 +8,7 @@ import { TitleDescription } from "./components/TitleDescription.jsx";
 import { Ingredients } from "./components/Ingredients.jsx";
 import { Instructions } from "./components/Instructions.jsx";
 import { Aside } from "./components/Aside.jsx";
+import { RecipeList } from "./components/RecipeList.jsx";
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
       type:"reset"
     })
   }
-  const handleClick=()=>{
+  
+  const handleSubmit=()=>{
     console.log(recipe);
       axios.post("http://localhost:4000/recipe",recipe)
       .then((response)=>{
@@ -25,39 +27,27 @@ function App() {
       .catch((error)=>{
           console.error("Error saving recipe:", error);
       });
+      setRefreshTrigger(prev=>!prev);
       reset();
   }
-  const handleFetch=()=>{
-    axios.get("http://localhost:4000/recipe")
-    .then((response)=>{
-      console.log("Latest recipe:",response.data);
-      const data=response.data;
-      dispatch({
-        type:"request_recipe",
-        object:data
-      })
-     
-    })
-    .catch((error)=>{
-      console.error("Error fetching recipe:",error);
-    });
-
-  }
 
 
 
 
 
+  const [refreshTrigger,setRefreshTrigger]=useState(false);
   const [recipe,dispatch]=useReducer(RecipeReducer,initialState);
 
   return (
     <>
+
+      <RecipeList dispatch={dispatch} refreshTrigger={refreshTrigger}/>
       <TitleDescription title={recipe.title} description={recipe.description} dispatch={dispatch} image={recipe.headerImage}/>
       <Ingredients ingredients={recipe.ingredients} dispatch={dispatch} image={recipe.ingredientsImage}/>
       <Instructions instructions={recipe.instructions} dispatch={dispatch}/>
       <Aside dispatch={dispatch} aside={recipe.aside} image={recipe.asideImage}/>
-      <button onClick={handleClick}>Finish</button>
-      <button onClick={handleFetch}>show latest</button>
+      <button onClick={handleSubmit}>Finish</button>
+      
 
       
     </>

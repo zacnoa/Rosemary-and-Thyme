@@ -7,35 +7,36 @@ const corsOptions={
 };
 
 
- const test={
-    title:"aaa",
-    description:"aa",
-    headerImage:"aa",
-    ingredientsImage:"aa",
-    ingredients:["aaaa","ssss"],
-    instructions:[{value:"aaaa",image:""}],
-    aside:["aaaa"],
-    asideImage:""
-};
-
-
-const recipes=[];
-recipes.push(test);
+const recipesID={};
+const recipes={};
 
 app.use(cors(corsOptions));
 app.use(express.json());
 
 
 app.post("/recipe",(req,res)=>{
-    
-    recipes.push(req.body);
-    console.log("Recipe receiver:",req.body);
-    res.status(200).send(req.body);
+    const id=Date.now();
+    const newRecipe={id,...req.body}
+
+    recipes[id]=newRecipe;
+    recipesID[id]={id, title:newRecipe.title};
+
+    console.log("Recipe receiver:",newRecipe);
+    res.status(200).send(newRecipe);
 });
 
-app.get("/recipe",(req,res)=>{
-    res.send(recipes[1]);
+
+
+app.get("/recipes",(req,res)=>{
+    res.status(200).json(Object.values(recipesID))
 })
+app.get("/recipe/:id",(req,res)=>{
+    const id=req.params.id;
+    if(recipes[id]){
+        res.status(200).json(recipes[id]);
+    }
+})
+
 
 
 app.listen(4000,()=>{
