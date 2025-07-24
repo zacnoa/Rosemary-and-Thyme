@@ -1,0 +1,26 @@
+.root{
+    font-size: 12px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Montserrat Alternates", sans-serif;
+}
+
+
+body{
+    background-color:#D0944D;
+    padding: 0 5vw;
+    
+}
+h1{
+    color:#3988A4;
+    font-size: 12rem;
+    width:70%;
+    position:relative;
+    left:42vw;
+    margin-bottom:3vw;
+    
+}

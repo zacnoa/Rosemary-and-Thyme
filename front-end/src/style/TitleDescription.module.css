@@ -1,0 +1,10 @@
+.container{
+    display:flex;
+    column-gap: 3vw;
+}
+.titleDescription{
+    display:flex;
+    flex-direction:column;
+    width:50%;
+    row-gap: 3vw;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import style from "../style/ImageBox.module.css";
 
 export function ImageBox({ image, dispatch,type }) {
     const handleImageChange = (event) => {
@@ -13,9 +14,10 @@ export function ImageBox({ image, dispatch,type }) {
     };
 
     return (
-        <>
-            {image && <img src={image} alt="Preview" />}
-            <input type="file" accept="image/jpeg, image/png, image/jpg" onChange={handleImageChange} />
-        </>
+        <div className={style.container}>
+            {image===""? <div className={style.placeholder}></div> : <img src={image} alt="Recipe Header" className={style.image} />}
+            <input  id={type} type="file"  accept="image/jpeg, image/png, image/jpg" onChange={handleImageChange} />
+            <label for={type} className={style.label}>{image===""? "Add Picture" : "Change Picture"}</label>
+        </div>
     );
 }

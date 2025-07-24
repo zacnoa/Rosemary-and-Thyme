@@ -40,13 +40,15 @@ function App() {
 
   return (
     <>
-
+      <main>
+      <h1>Give It To Me</h1>
       <RecipeList dispatch={dispatch} refreshTrigger={refreshTrigger}/>
       <TitleDescription title={recipe.title} description={recipe.description} dispatch={dispatch} image={recipe.headerImage}/>
       <Ingredients ingredients={recipe.ingredients} dispatch={dispatch} image={recipe.ingredientsImage}/>
       <Instructions instructions={recipe.instructions} dispatch={dispatch}/>
       <Aside dispatch={dispatch} aside={recipe.aside} image={recipe.asideImage}/>
       <button onClick={handleSubmit}>Finish</button>
+      </main>
       
 
       

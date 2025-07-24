@@ -2,6 +2,7 @@ import react from "react";
 import { ImageBox } from "./ImageBox.jsx";
 import { RecipeItem } from "./RecipeItem.jsx";
 import { InstructionsItem } from "./InstructionsItem.jsx";
+import style from "../style/Insctructions.module.css";
 
 
 export function Instructions({instructions,dispatch})

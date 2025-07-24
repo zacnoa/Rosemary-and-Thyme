@@ -1,5 +1,6 @@
 import react from "react";
 import{RecipeItem} from "./RecipeItem.jsx";
+import style from "../style/InstructionsItem.module.css";
 
 
 
@@ -31,3 +32,4 @@ export function InstructionsItem({index,value,dispatch,type,image})
         </>
     );
 }
+

@@ -1,5 +1,5 @@
 import react from 'react';
-
+import style from "../style/RecipeItem.module.css";
 
 
 export function RecipeItem({value, index, dispatch,type }) {
@@ -16,7 +16,7 @@ export function RecipeItem({value, index, dispatch,type }) {
 
 
 return(
-        <textarea value={value} onChange={handleChange}>
+        <textarea value={value} onChange={handleChange} className={style.textarea}>
 
         </textarea>
     );

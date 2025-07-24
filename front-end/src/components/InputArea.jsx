@@ -1,4 +1,5 @@
 import react from "react";
+import style from '../style/InputArea.module.css';
 
 
 
@@ -18,7 +19,7 @@ export function InputArea({value,dispatch,type}){
 
 
     return(
-        <textarea value={value} onChange={handleChange}>
+        <textarea className={style.textarea} value={value} onChange={handleChange}>
 
         </textarea>
     );
