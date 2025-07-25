@@ -1,12 +1,12 @@
 export const initialState={
     title:"",
     description:"",
-    headerImage:"",
-    ingredientsImage:"",
+    headerImage:null,
+    ingredientsImage:null,
     ingredients:[],
     instructions:[],
     aside:[],
-    asideImage:""
+    asideImage:null
 };
 
 
@@ -63,7 +63,7 @@ export function RecipeReducer(state,action){
             case "added_instruction":{
                 return{
                     ...state,
-                    instructions:[...state.instructions,{value:"",image:""}]
+                    instructions:[...state.instructions,{value:"",image:null}]
                 }
             }
             case "edited_instructionsImage":{

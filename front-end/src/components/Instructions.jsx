@@ -16,7 +16,7 @@ export function Instructions({instructions,dispatch})
     }
 
     return (
-        <>
+        <div className={style.container}>
         {
             instructions.map((instruction,index)=>{
                 return(
@@ -24,8 +24,8 @@ export function Instructions({instructions,dispatch})
                 )
             })
         }
-        <button onClick={handleClick}>Add step</button>
-        </>
+        <button onClick={handleClick} className={style.button}>Add step</button>
+        </div>
 
 
     )

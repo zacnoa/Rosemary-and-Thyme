@@ -1,0 +1,18 @@
+.container{
+    margin-top:10vw;
+}
+
+.button{
+    width:10vw;
+    height:3vw;
+    background-color: #CB625F;
+    box-shadow: #67C2D4 -10px 10px 0px;  
+    border:none;  
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    position:relative;
+    cursor: pointer;
+    left:57.2%;
+    transform:translateX(-10vw);
+}

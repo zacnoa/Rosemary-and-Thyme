@@ -47,7 +47,7 @@ function App() {
       <Ingredients ingredients={recipe.ingredients} dispatch={dispatch} image={recipe.ingredientsImage}/>
       <Instructions instructions={recipe.instructions} dispatch={dispatch}/>
       <Aside dispatch={dispatch} aside={recipe.aside} image={recipe.asideImage}/>
-      <button onClick={handleSubmit}>Finish</button>
+      <button className="submit" onClick={handleSubmit}><p>FINISH</p></button>
       </main>
       
 

@@ -1,17 +1,7 @@
 .container{
-    width:50%;
     display:flex;
-    flex-direction:column;
-    row-gap: 3vw;
-    align-items: center;
-    position:relative;
-    
-}
-.placeholder{
-    width:35vw;
-    height:25vw;
-    background-color: #FFFFFF;
-    box-shadow: #67C2D4 20px 25px 0px;
+    column-gap:3vw;
+
 }
 input[type="file"]{
     color:transparent;
@@ -37,12 +27,43 @@ input::file-selector-button{
     padding-top:0.3vw;
     font-size: 1.3rem;
     cursor: pointer;
-    position:absolute;
     color:#CB625F;
     font-weight: bold;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    position:relative;
+    bottom:15px;
 
 }
 .image{
-    width:40vw;
+    width:60%;
     height: auto;
+    margin:0.5vw 0;
+}
+.textarea{
+    width:50%;
+}
+.listbutton{
+    width:3.5vw;
+    height:3.5vw;
+    background-color: #FFFFFF;
+    position:relative;
+    top:15px;
+    left:10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: #67C2D4 -10px 8px 0px;
+    border-right:#67C2D4 solid 4px;
+    border-bottom:#67C2D4 solid 4px;
+    border-top: #67C2D4 solid 3px;
+    border-left:#67C2D4 solid 3px;
+    
+
+}
+.number{
+    display:inline-block;
+    font-size: 3rem;
 }

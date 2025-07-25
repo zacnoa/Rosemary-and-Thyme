@@ -15,9 +15,9 @@ export function ImageBox({ image, dispatch,type }) {
 
     return (
         <div className={style.container}>
-            {image===""? <div className={style.placeholder}></div> : <img src={image} alt="Recipe Header" className={style.image} />}
+            {image===null? <div className={style.placeholder}></div> : <img src={image} alt="Recipe Header" className={style.image} />}
             <input  id={type} type="file"  accept="image/jpeg, image/png, image/jpg" onChange={handleImageChange} />
-            <label for={type} className={style.label}>{image===""? "Add Picture" : "Change Picture"}</label>
+            <label for={type} className={style.label}>{image===null? <p className={style.text}>Add Picture</p> : <p className={style.text}>Change Picture</p>}</label>
         </div>
     );
 }

@@ -42,6 +42,10 @@ input::file-selector-button{
     right:4.2vw;
     color:#CB625F;
     font-weight: bold;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
 
 }
 .image{
