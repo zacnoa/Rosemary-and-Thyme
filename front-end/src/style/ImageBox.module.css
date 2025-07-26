@@ -12,6 +12,13 @@
     height:25vw;
     background-color: #FFFFFF;
     box-shadow: #67C2D4 20px 25px 0px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.placeholder p{
+    font-size: 3rem;
+    font-weight: bold;
 }
 input[type="file"]{
     color:transparent;
@@ -48,7 +55,10 @@ input::file-selector-button{
 
 
 }
+
 .image{
     width:40vw;
     height: auto;
 }
+
+/* https://gsap.com/community/forums/topic/34990-filling-the-button-on-hover-from-the-side-of-the-entered-cursor-position/ */
