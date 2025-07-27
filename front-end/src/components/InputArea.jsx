@@ -9,21 +9,20 @@ gsap.registerPlugin(useGSAP)
 export function InputArea({value,dispatch,type}){
 
     const textareaRef=useRef();
-    const {contextSafe} =useGSAP(()=>{
-        textareaRef.current.timeline=gsap.timeline({paused:true})
-        .to(textareaRef.current,{
-            duration:0.75,
-            boxShadow:"22px -24px 0px #CB625F",
-            ease:"power4.in",
-        })
-    });
+    const {contextSafe} =useGSAP();
  
     
     const onFocus=contextSafe(()=>{
-        textareaRef.current.timeline.play();
+        gsap.to(textareaRef.current,{
+            duration:0.5,
+            boxShadow:"22px -24px 0px #CB625F",
+        })
     });
     const onBlur=contextSafe(()=>{
-        textareaRef.current.timeline.reverse();
+        gsap.to(textareaRef.current,{
+            duration:0.5,
+            boxShadow:"22px 24px 0px #CB625F",
+        })
     });
 
 
@@ -43,7 +42,7 @@ export function InputArea({value,dispatch,type}){
 
 
     return(
-        <textarea ref={textareaRef} onFocus={onFocus} onBlur={onBlur} className={style.textarea} value={value} onChange={handleChange}>
+        <textarea ref={textareaRef} onFocus={onFocus} onBlur={onBlur} className={`${style.textarea} ${type==="title" ? style.title : style.description}`} value={value} onChange={handleChange}>
 
         </textarea>
     );
