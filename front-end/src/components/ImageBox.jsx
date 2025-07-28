@@ -12,7 +12,7 @@ export function ImageBox({ image, dispatch,type }) {
     const buttonRef=useRef();
     const shadowRef=useRef();
     const tl=useRef();
-    const textRef=useRef();
+
     const {contextSafe} =useGSAP(()=>{
         tl.current=gsap
         .timeline({paused:true},{defaults:{duration:0.5, ease:"none"}}).to(buttonRef.current,{
@@ -30,11 +30,14 @@ export function ImageBox({ image, dispatch,type }) {
             zIndex:2
         },">")
         .to(shadowRef.current,{
-            backgroundColor:"#FFFFFF",
-            duration:0.25
-        },"<").to(buttonRef.current,{
             backgroundColor:"#67C2D4",
-            duration:0.25
+            duration:0.25,
+            color:"#CB625F"
+    
+        },"<").to(buttonRef.current,{
+            backgroundColor:"#FFFFFF",
+            duration:0.25,
+            color:"#CB625F"
         },"<")
     });
 
@@ -65,11 +68,15 @@ export function ImageBox({ image, dispatch,type }) {
             {image===null? <div className={style.placeholder}><p>PICTURE GOES HERE</p></div> : <img src={image} alt="Recipe Header" className={style.image} />}
             <input  id={type} type="file"  accept="image/jpeg, image/png, image/jpg" onChange={handleImageChange} />
             <div className={style.labelContainer} onMouseEnter={onHover} onMouseLeave={onLeave}>
-                    <label ref={buttonRef}   htmlFor={type} className={style.label}>
+                    <label   htmlFor={type}>
+                    <div className={style.label} ref={buttonRef}>
                     {image===null? <p   className={style.text}>Add Picture</p> : <p  className={style.text}>Change Picture</p>}
+                    </div>
+                    <div className={style.shadow} ref={shadowRef}>
+                    {image===null? <p   className={style.text}>Add Picture</p> : <p  className={style.text}>Change Picture</p>}
+                    </div>
                     </label>
-                    <div  ref={shadowRef} className={style.shadow}>{image===null? <p   className={style.text}>Add Picture</p> : <p  className={style.text}>Change Picture</p>}</div>
-                
+
             </div>
         </div>
     );

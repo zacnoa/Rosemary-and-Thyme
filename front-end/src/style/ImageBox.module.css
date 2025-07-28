@@ -36,9 +36,9 @@ input::file-selector-button{
 .labelContainer{
     width:10vw;
     height:3vw;
-    position:absolute;
-    bottom:-7vw;
-    right:4.5vw;
+    position:relative;
+    left:52%;
+    transform: translateX(-10vw);
 }
 .label{
     width:10vw;
@@ -71,6 +71,7 @@ input::file-selector-button{
     align-items: center;
     font-size: 1.3rem;
     z-index: -1 ;
+    cursor: pointer;
     
 }
 

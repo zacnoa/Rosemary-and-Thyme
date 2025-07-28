@@ -1,11 +1,59 @@
-import react from "react";
+import {useGSAP} from "@gsap/react";
+import {useRef} from "react";
+import gsap from "gsap";
 import{RecipeItem} from "./RecipeItem.jsx";
-import style from "../style/InstructionsItem.module.css";
+import style from "../style/InstructionsItem.module.css"
+import style1 from "../style/ImageBox.module.css";
 
 
+gsap.registerPlugin(useGSAP);
 
 export function InstructionsItem({index,value,dispatch,image})
 {
+
+
+    const buttonRef=useRef();
+    const shadowRef=useRef();
+    const tl=useRef();
+
+    const {contextSafe} =useGSAP(()=>{
+        tl.current=gsap
+        .timeline({paused:true},{defaults:{duration:0.5, ease:"none"}}).to(buttonRef.current,{
+            top:15,
+            left:10
+            
+        },"<").to(shadowRef.current,{
+            top:0,
+            left:0
+        },"<").to([buttonRef.current,shadowRef.current],{
+            backgroundColor:"#9ad6e2",
+            duration:0.25,
+            color:"#9ad6e2"
+        },"<").set(shadowRef.current,{
+            zIndex:2
+        },">")
+        .to(shadowRef.current,{
+            backgroundColor:"#67C2D4",
+            duration:0.25,
+            color:"#CB625F"
+    
+        },"<").to(buttonRef.current,{
+            backgroundColor:"#FFFFFF",
+            duration:0.25,
+            color:"#CB625F"
+        },"<")
+    });
+
+    const onHover=contextSafe(()=>{
+        tl.current.play();
+    });
+    const onLeave=contextSafe(()=>{
+        tl.current.reverse();
+    });
+
+
+
+
 
     const handleImageChange=(event)=>{
         const file=event.target.files[0];
@@ -25,12 +73,27 @@ export function InstructionsItem({index,value,dispatch,image})
     return(
         <>
             <div>
-                <div className={style.container}>
+                <div className={style.container}>   
                     <div className={style.listbutton}><p className={style.number}>{index+1}</p></div>
                     <div className={style.textarea}>
                     <RecipeItem key={index} index={index} value={value} dispatch={dispatch} type={"instruction"} />
                     </div>
-                    <label for={index} className={style.label}>{image===null? <p className={style.text}>Add Picture</p> : <p className={style.text}>Change Picture</p>}</label>
+                    <div className={style1.labelContainer} style={{position:"relative",left:0, transform:"translateX(0)"}} onMouseEnter={onHover} onMouseLeave={onLeave}>
+                        <label   htmlFor={index}>
+                            <div className={style1.label} ref={buttonRef}>
+                                {image===null? <p   className={style1.text}>Add Picture</p> : <p  className={style1.text}>Change Picture</p>}
+                            </div>
+                            <div className={style1.shadow} ref={shadowRef}>
+                                {image===null? <p   className={style1.text}>Add Picture</p> : <p  className={style1.text}>Change Picture</p>}
+                            </div>
+                        </label>
+
+            </div>
+                    
+
+
+
+                    
                 </div>
                 <img src={image} className={style.image}/>
             </div>
