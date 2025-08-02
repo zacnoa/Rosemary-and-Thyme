@@ -37,7 +37,7 @@ export function ImageBox({ image, dispatch,type }) {
         },"<").to(buttonRef.current,{
             backgroundColor:"#FFFFFF",
             duration:0.25,
-            color:"#CB625F"
+            color:"#FFFFFF"
         },"<")
     });
 

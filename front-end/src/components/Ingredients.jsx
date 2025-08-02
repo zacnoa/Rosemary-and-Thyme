@@ -82,8 +82,9 @@ export function Ingredients({ingredients,dispatch,image})
                 <div  ref={shadowRef} className={style.shadow}><p>Add Ingredient</p></div>
             </div>
         </div>
-
+        <div className={style.imageContainer}>
         <ImageBox image={image} dispatch={dispatch} type={"ingredientsImage"}/>
+        </div>
     
     
     </div>

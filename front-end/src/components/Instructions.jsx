@@ -3,7 +3,10 @@ import {useRef} from "react";
 import {useGSAP} from "@gsap/react";
 import { InstructionsItem } from "./InstructionsItem.jsx";
 import style from "../style/Insctructions.module.css";
-import button1 from "../style/Ingredients.module.css";
+
+
+
+
 
 
 export function Instructions({instructions,dispatch})
@@ -70,12 +73,12 @@ export function Instructions({instructions,dispatch})
                 )
             })
         }
-        <div onClick={handleClick} onMouseEnter={onHover} onMouseLeave={onLeave} className={button1.buttonContainer} style={{left:"57.1%"}} >
-            <div ref={buttonRef} className={button1.button}><p>Add Ingredient</p></div>
-            <div  ref={shadowRef} className={button1.shadow}><p>Add Ingredient</p></div>
+        <div onClick={handleClick} onMouseEnter={onHover} onMouseLeave={onLeave} className={style.buttonContainer}>
+            <div ref={buttonRef} className={style.button}><p>Next Step</p></div>
+            <div  ref={shadowRef} className={style.shadow}><p>Next Step</p></div>
         </div>
         </div>
 
 
-    )
+    )    
 }

@@ -40,7 +40,7 @@ export function InstructionsItem({index,value,dispatch,image})
         },"<").to(buttonRef.current,{
             backgroundColor:"#FFFFFF",
             duration:0.25,
-            color:"#CB625F"
+            color:"#FFFFFF"
         },"<")
     });
 
@@ -71,36 +71,33 @@ export function InstructionsItem({index,value,dispatch,image})
 
 
     return(
-        <>
-            <div>
                 <div className={style.container}>   
-                    <div className={style.listbutton}><p className={style.number}>{index+1}</p></div>
                     <div className={style.textarea}>
+                    <div className={style.listbutton}><p className={style.number}>{index+1}</p></div>
                     <RecipeItem key={index} index={index} value={value} dispatch={dispatch} type={"instruction"} />
-                    </div>
-                    <div className={style1.labelContainer} style={{position:"relative",left:0, transform:"translateX(0)"}} onMouseEnter={onHover} onMouseLeave={onLeave}>
+                    
+                    <div className={style.labelContainer}  onMouseEnter={onHover} onMouseLeave={onLeave}>
                         <label   htmlFor={index}>
-                            <div className={style1.label} ref={buttonRef}>
-                                {image===null? <p   className={style1.text}>Add Picture</p> : <p  className={style1.text}>Change Picture</p>}
+                            <div className={style.label} ref={buttonRef}>
+                                {image===null? <p   className={style.text}>Add Picture</p> : <p  className={style.text}>Change Picture</p>}
                             </div>
-                            <div className={style1.shadow} ref={shadowRef}>
-                                {image===null? <p   className={style1.text}>Add Picture</p> : <p  className={style1.text}>Change Picture</p>}
+                            <div className={style.shadow} ref={shadowRef}>
+                                {image===null? <p   className={style.text}>Add Picture</p> : <p  className={style.text}>Change Picture</p>}
                             </div>
                         </label>
-
-            </div>
-                    
-
-
-
-                    
+                    </div>
                 </div>
-                <img src={image} className={style.image}/>
-            </div>
+                    <img src={image} className={style.image}/>
+                    <input  id={index} type="file" accept="image/jpeg, image/png, image/jpg" onChange={handleImageChange} />
+                </div>
+                
+                    
+
+
+
+        
             
-            <input  id={index} type="file" accept="image/jpeg, image/png, image/jpg" onChange={handleImageChange} />
          
-        </>
     );
 }
 

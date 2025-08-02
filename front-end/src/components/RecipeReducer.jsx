@@ -3,9 +3,9 @@ export const initialState={
     description:"",
     headerImage:null,
     ingredientsImage:null,
-    ingredients:[],
-    instructions:[],
-    aside:[],
+    ingredients:[""],
+    instructions:[{value:"",image:null}],
+    aside:[""],
     asideImage:null
 };
 

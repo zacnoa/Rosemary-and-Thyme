@@ -1,7 +1,3 @@
-.root{
-    font-size: 12px;
-}
-
 *{
     margin: 0;
     padding: 0;
@@ -9,34 +5,123 @@
     font-family:"Montserrat Alternates", sans-serif;
 }
 
-
-body{
-    background-color:#D0944D;
-    padding: 0 5vw;
-    
+html{
+    width:100%;
+    font-size: 12px;
+    max-width: 1600px;
+    margin: 0 auto;
 }
-h1{
-    color:#3988A4;
-    font-size: 12rem;
-    width:70%;
-    position:relative;
-    left:42vw;
-    margin-bottom:3vw;
-    
-}
-.submit
- {
-    font-size: 4rem;
-    width:14vw;
-    height:5vw;
-    margin-top:10vw;
-    position:relative;
-    left:50%;
-    transform: translateX(-50%);
+main{
     display:flex;
+    flex-direction: column;
+}
+
+.title{
+    align-self: flex-end;
+}
+
+body {
+    background-color: #D0944D;
+    max-width: 100vw;
+    overflow-x: hidden;
+
+}
+h1 {
+    color: #3988A4;
+    font-size: 8rem;
+    display:inline-block;
+    position: relative;
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 100vw;
+    overflow-wrap: break-word;
+    display:flex;
+    flex-direction: column;
+    align-self: flex-end;
+    right:8%;
+}
+h1 div{
+
+align-self: flex-start;
+}
+
+
+.submit {
+    font-size: 4rem;
+    width: 15%;
+    max-width: 300px;
+    height: 6rem;
+    margin: 3rem auto 2rem auto;
+    position: relative;
+    transform: none;
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10vw;
-    box-shadow: #3988A4 88px -15px 0px,   #67C2D4 -100px 15px 0px , #CB625F 0px 35px 0px;
-   
+    box-shadow: #3988A4 60px -10px 0px, #67C2D4 -80px 10px 0px, #CB625F 0px 35px 0px;
+    font-weight: bold;
+}
+
+
+ .asideContainer {
+    padding:2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1.5rem;
+    margin-bottom: 15rem;
+ }  
+ .svgContainer{
+    width:50%;
  }
+ .aside{
+    width:50%;
+ }
+
+ @media only screen and (max-width:600px){
+    
+    html{
+        font-size: 8px;
+    }
+    
+    h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+
+    }
+    .asideContainer{
+        flex-direction: column;
+        align-items: center;
+        width:100%;
+    }
+    .svgContainer{
+        width: 100%;
+        
+    }
+    .aside{
+        width:100%;
+    }
+   
+    .submit {
+        font-size:3rem;
+        width: 40%;
+        height: 50px;
+        margin: 2rem auto 1rem auto;
+        box-shadow: #3988A4 40px -15px 0px, #67C2D4 -45px 5px 0px, #CB625F 0px 20px 0px;
+    }
+ 
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    html{
+        font-size: 10px;
+    }
+    .submit{
+        width: 170px;
+        height: 5rem;
+        margin: 2rem auto 1rem auto;
+        box-shadow: #3988A4 55px -10px 0px, #67C2D4 -70px 10px 0px, #CB625F 0px 30px 0px;
+    }
+    h1{
+        font-size: 8rem;
+    }
+}
