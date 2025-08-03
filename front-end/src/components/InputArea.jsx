@@ -42,7 +42,7 @@ export function InputArea({value,dispatch,type}){
 
 
     return(
-        <textarea ref={textareaRef} onFocus={onFocus} onBlur={onBlur} className={`${style.textarea} ${type==="title" ? style.title : style.description}`} value={value} onChange={handleChange}>
+        <textarea ref={textareaRef} onFocus={onFocus} onBlur={onBlur} className={`${style.textarea} ${type==="title" ? style.title : style.description}`} value={value} onChange={handleChange} placeholder={type==="title" ? "Title..." : "Description..."}>
 
         </textarea>
     );

@@ -5,6 +5,14 @@
     font-family:"Montserrat Alternates", sans-serif;
 }
 
+
+
+
+svg text{
+    font-family: "Playfair", serif;
+    text-transform: uppercase;
+}
+
 html{
     width:100%;
     font-size: 12px;
@@ -59,6 +67,7 @@ align-self: flex-start;
     justify-content: center;
     box-shadow: #3988A4 60px -10px 0px, #67C2D4 -80px 10px 0px, #CB625F 0px 35px 0px;
     font-weight: bold;
+    margin-bottom: 5rem;
 }
 
 
@@ -68,7 +77,6 @@ align-self: flex-start;
     display: flex;
     flex-direction: row;
     column-gap: 1.5rem;
-    margin-bottom: 15rem;
  }  
  .svgContainer{
     width:50%;

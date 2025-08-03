@@ -16,7 +16,7 @@ export function RecipeItem({value, index, dispatch,type }) {
 
 
 return(
-        <textarea value={value} onChange={handleChange} className={style.textarea}>
+        <textarea value={value} onChange={handleChange} className={style.textarea} placeholder={type==="ingredient" ? "What Gets You Off?" :type==="aside" ? "Tell Me You Love Me": "How Do You Like It?"}>
 
         </textarea>
     );

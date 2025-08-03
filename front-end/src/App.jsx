@@ -39,8 +39,8 @@ function App() {
     <>
       <main>
 
-        <svg viewBox="0 0 900 150" xmlns="http://www.w3.org/2000/svg">
-          <text y="70" x="545" fill="#2293ad" fontSize="60" fontWeight="bold" >Give It To</text>
+        <svg viewBox="0 0 900 150" xmlns="http://www.w3.org/2000/svg" >
+          <text y="70" x="545" fill="#2293ad" fontSize="60" fontWeight="bold">Give It To</text>
           <text y="150" x="545" fill="#2293ad" fontSize="60" fontWeight="bold">Me</text>
         </svg>
         <RecipeList dispatch={dispatch} refreshTrigger={refreshTrigger} />
@@ -88,10 +88,10 @@ function App() {
         <div  className="asideContainer">
           <div className="svgContainer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox='0 0 500 500'>
-              <text x="295" y="60"  fill="#3988a4" fontWeight="bold" fontSize="80" >C</text>
+              <text x="270" y="60"  fill="#3988a4" fontWeight="bold" fontSize="80" >C</text>
               <text x="110" y="140" fill="#3988a4" fontWeight="bold" fontSize="80" letterSpacing="35">AFA</text>
-              <text  x="110" y="220" fill="#3988a4" fontWeight="bold" fontSize="85" letterSpacing="35">TER</text>
-              <text  x="295" y="300" fill="#3988a4" fontWeight="bold" fontSize="80">E</text>
+              <text  x="100" y="220" fill="#3988a4" fontWeight="bold" fontSize="80" letterSpacing="35">TER</text>
+              <text  x="255" y="300" fill="#3988a4" fontWeight="bold" fontSize="80">E</text>
             </svg>
           </div>
           <div className="aside">
