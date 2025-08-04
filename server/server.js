@@ -34,7 +34,7 @@ app.get("/recipe/:id",(req,res)=>{
     const id=req.params.id;
     if(recipes[id]){
         res.status(200).json(recipes[id]);
-    }
+    }    
 })
 
 

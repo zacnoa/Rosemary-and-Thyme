@@ -1,9 +1,21 @@
-import react from "react";
-import {useEffect,useState} from "react";
+
+import {useEffect,useState,useRef} from "react";
 import axios from "axios";
+import style from "../style/RecipeList.module.css";
+import gsap from "gsap";
+import {useGSAP} from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 export function RecipeList({dispatch,refreshTrigger})
+
 {
+
+    const recipeListRef=useRef();
+    const t1=useRef();
+
+  
+    
     const [recipes,setRecipes]=useState([]);
     const fetchRecipes=()=>
     {
@@ -20,6 +32,9 @@ export function RecipeList({dispatch,refreshTrigger})
     },[refreshTrigger]);
 
 
+
+     
+
     const handleRecipeClick=id=>{
         axios.get(`http://localhost:4000/recipe/${id}`)
         .then(response=>{
@@ -35,19 +50,16 @@ export function RecipeList({dispatch,refreshTrigger})
 
 
     return(
-        <div>
-            <h2>Recipe List</h2>
+        <div className={style.navbar} ref={recipeListRef}>
             <ul>
                 {
                     recipes.map((recipe,index)=>{
                         return(
-                            <li key={index}  onClick={()=>handleRecipeClick(recipe.id)}>{recipe.title}</li>
+                            <li className="box" key={index}  onClick={()=>handleRecipeClick(recipe.id)}>{recipe.title}</li>
                         );
                     })
                 }    
             </ul>
-
-
         </div>
     );
 

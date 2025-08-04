@@ -1,0 +1,12 @@
+ul{
+    font-size: 1.5rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    row-gap: 1rem;
+}
+.box{
+    transform: scaleX(0);
+    transform-origin: right;
+}
