@@ -7,7 +7,7 @@ import { TitleDescription } from "./components/TitleDescription.jsx";
 import { Ingredients } from "./components/Ingredients.jsx";
 import { Instructions } from "./components/Instructions.jsx";
 import { Aside } from "./components/Aside.jsx";
-import { RecipeList } from "./components/RecipeList.jsx";
+import { Sidebar } from "./components/Sidebar.jsx";
 import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
 
@@ -15,45 +15,7 @@ gsap.registerPlugin(useGSAP);
 
 function App() {
 
-  const overlayRef=useRef();
-  const sidebarRef=useRef();;
-  const t1=useRef();
-  const t2=useRef();
-
-  const {contextSafe}= useGSAP(()=>{
-      t1.current=gsap.timeline({paused:true})
-      .to(sidebarRef.current,{
-        scaleX:1,
-        duration:1,
-        ease:"bounce.out"
-      })
-      .to(overlayRef.current,{
-        scaleX:1,
-        duration:1,
-        ease:"bounce.out"
-      },"<");
-      t2.current=gsap.timeline({paused:true})
-      .to(sidebarRef.current,{
-        scaleX:0,
-        duration:1,
-        ease:"bounce.out"
-      })
-      .to(overlayRef.current,{
-        scaleX:0,
-        duration:1,
-        ease:"bounce.out"
-      },"<");
-  });
-
-
-  
-const handleSideBarShow=contextSafe(()=>{
-
-  t1.current.restart(); 
-});
-const handleSideBarHide=contextSafe(()=>{ 
-  t2.current.restart();
-});
+ 
 
   const reset = () => {
     dispatch({
@@ -83,18 +45,10 @@ const handleSideBarHide=contextSafe(()=>{
     <>
       <main>
 
-        <div className="navbarButton" onClick={handleSideBarShow}>
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="50" fill="#67C2D4" />
-          </svg>
-        </div>
+        
 
-        <div className="overlay" ref={overlayRef} onClick={handleSideBarHide}></div>
 
-        <div className="sidebar" ref={sidebarRef}>  
-          <RecipeList dispatch={dispatch} refreshTrigger={refreshTrigger} setTimelineRef={timeline=>(recipeListTimelineRef.current=timeline)} />
-        </div>
-
+        <Sidebar refreshTrigger={refreshTrigger} dispatch={dispatch} />
         <svg viewBox="0 0 900 150" xmlns="http://www.w3.org/2000/svg" >
           <text y="70" x="525" fill="#2293ad" fontSize="80" fontWeight="bold">Give It To</text>
           <text y="150" x="525" fill="#2293ad" fontSize="80" fontWeight="bold">Me</text>
