@@ -1,13 +1,76 @@
+.recipelist{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap:4rem;
+}
+
+
+
 ul{
     font-size: 1.5rem;
     display:flex;
     flex-direction: column;
     align-items: center;
     list-style: none;
-    row-gap: 1rem;
+    width:100%;
+    justify-content: space-around;
+    row-gap: 2rem;
 }
 .box{
-   
+    transform:translateY(100%);
     opacity:0;
-    transform-origin: right;
+    display:block;
+    padding:1rem;
+    cursor: pointer;
+    width:100%;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
 }
+
+
+.search{
+    width:100%;
+}
+textarea{
+    width:100%;
+    resize: none;
+    outline:none;
+    padding:0.5rem;
+
+}
+label{
+    color:#000000;
+    font-size: 1.5rem;
+}
+
+.bt, .tp {
+    position: absolute;
+    background-color: #CB625F;
+    width: 100%;
+    height: 3px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.5s ease-out;
+}
+.tp{
+    top:0;
+}
+.bt{
+    bottom: 0;
+}
+.box:hover .bt, .box:hover .tp{
+    transform: translateX(-50%) scaleX(1);
+    
+}
+li p{
+    vertical-align: middle;
+    display: inline-block;
+}
+
+

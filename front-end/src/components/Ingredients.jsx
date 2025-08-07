@@ -7,7 +7,7 @@ import style from "../style/Ingredients.module.css";
 
 gsap.registerPlugin(useGSAP);
 
-export function Ingredients({ingredients,dispatch,image})
+export function Ingredients({ingredients,dispatch,image,NSFWtrigger}) 
 {
 
 
@@ -25,12 +25,12 @@ export function Ingredients({ingredients,dispatch,image})
     const {contextSafe} =useGSAP(()=>{
         tl.current=gsap
         .timeline({paused:true},{defaults:{duration:0.5, ease:"none"}}).to(buttonRef.current,{
-            top:10,
-            left:-10
+            x:-10,
+            y:10
             
         },"<").to(shadowRef.current,{
-            top:0,
-            left:0
+            x:0,
+            y:0
         },"<").to([buttonRef.current,shadowRef.current],{
             backgroundColor:"#9a9299",
             duration:0.25,
@@ -74,7 +74,7 @@ export function Ingredients({ingredients,dispatch,image})
         <div className={style.ingredients}>
             {
                 ingredients.map((ingredient,index)=>
-                <RecipeItem  key={index} index={index} value={ingredient} dispatch={dispatch} type={"ingredient"} />
+                <RecipeItem  key={index} index={index} value={ingredient} dispatch={dispatch} type={"ingredient"} NSFWtrigger={NSFWtrigger} />
                 )
             }
             <div onClick={handleClick} onMouseEnter={onHover} onMouseLeave={onLeave} className={style.buttonContainer} >

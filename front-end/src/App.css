@@ -35,24 +35,6 @@ body {
     overflow-x: hidden;
 
 }
-h1 {
-    color: #3988A4;
-    font-size: 8rem;
-    display:inline-block;
-    position: relative;
-    margin-bottom: 2rem;
-    text-align: center;
-    max-width: 100vw;
-    overflow-wrap: break-word;
-    display:flex;
-    flex-direction: column;
-    align-self: flex-end;
-    right:8%;
-}
-h1 div{
-
-align-self: flex-start;
-}
 
 
 .submit {
@@ -87,41 +69,8 @@ align-self: flex-start;
  }
 
 
-.navbarButton {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    cursor: pointer;
-    width:50px;
-    height:50px;
 
-}
-
-.overlay{
-    position:fixed;
-    width:80%;
-    z-index:3;
-    height:100%;
-    top:0;
-    right:0;
-    transform: scaleX(0);
-    transform-origin: right;
-    background-color: #000000;
-    opacity:0.2;
-}
-
-.sidebar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:20%;
-    height:100%;
-    background-color:#FFFFFF;
-    transform: scaleX(0);
-    transform-origin: left;
-    z-index:3;
-}
-
+ 
 
  @media only screen and (max-width:600px){
     
@@ -143,23 +92,25 @@ align-self: flex-start;
     }
    
     .submit {
-        font-size:3rem;
+        font-size:4rem;
         width: 40%;
         height: 50px;
-        margin-top:10rem;
+        margin-top:15rem;
+        margin-bottom: 10rem;
         box-shadow: #3988A4 40px -15px 0px, #67C2D4 -45px 5px 0px, #CB625F 0px 20px 0px;
     }
  
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
     html{
         font-size: 10px;
     }
     .submit{
         width: 170px;
         height: 5rem;
-        margin: 2rem auto 1rem auto;
+        margin-top:15rem;
+        margin-bottom: 10rem;
         box-shadow: #3988A4 55px -10px 0px, #67C2D4 -70px 10px 0px, #CB625F 0px 30px 0px;
     }
     h1{

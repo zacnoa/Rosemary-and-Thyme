@@ -2,7 +2,7 @@ import react from 'react';
 import style from "../style/RecipeItem.module.css";
 
 
-export function RecipeItem({value, index, dispatch,type }) {
+export function RecipeItem({value, index, dispatch,type,NSFWtrigger}) {
 
 
     const handleChange=(event)=>{
@@ -12,11 +12,28 @@ export function RecipeItem({value, index, dispatch,type }) {
             index:index
         })
     }
+    let ingredient="";
+    let aside="";
+    let instructions="";
+
+    if(NSFWtrigger)
+    {
+        ingredient="What Gets You Off?";
+        aside="Tell Me You Love Me";
+        instructions="How Do You Like It?";
+    }
+    else
+    {
+        ingredient="What Do You Need?";
+        aside="What Else Do You Need?";
+        instructions="How Do You Need It?"  
+    }
+
 
 
 
 return(
-        <textarea value={value} onChange={handleChange} className={style.textarea} placeholder={type==="ingredient" ? "What Gets You Off?" :type==="aside" ? "Tell Me You Love Me": "How Do You Like It?"}>
+        <textarea value={value} onChange={handleChange} className={style.textarea} placeholder={type==="ingredient" ? ingredient :type==="aside" ? aside: instructions}>
 
         </textarea>
     );
