@@ -73,7 +73,7 @@ export function InstructionsItem({index,value,dispatch,image})
     return(
                 <div className={style.container}>   
                     <div className={style.textarea}>
-                    <div className={style.listbutton}><p className={style.number}>{index+1}</p></div>
+                    <div  className={style.listbutton}><p className={style.number}>{index+1}</p></div>
                     <RecipeItem key={index} index={index} value={value} dispatch={dispatch} type={"instruction"} />
                     
                     <div className={style.labelContainer}  onMouseEnter={onHover} onMouseLeave={onLeave}>

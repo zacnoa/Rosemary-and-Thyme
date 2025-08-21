@@ -53,9 +53,7 @@ function App() {
 
 
         <Sidebar refreshTrigger={refreshTrigger} dispatch={dispatch} NSFWtrigger={NSFWtrigger} handleNSFWToggle={handleNSFWToggle} />
-        <svg viewBox="0 0 900 150" xmlns="http://www.w3.org/2000/svg" >
-          <text y="70" x={NSFWtrigger ? "380" : "450"} fill="#2293ad"  fontSize="80" fontWeight="bold">{NSFWtrigger ? "Give It To Me" : "Write It In" }</text>
-        </svg>
+        <h2 class="title">{NSFWtrigger ? "Give It To Me" : "Write It In"}</h2>
 
         <div style={{ marginBottom: "10rem", marginTop:"6rem", padding: "2rem" }}>
           <TitleDescription title={recipe.title} description={recipe.description} dispatch={dispatch} image={recipe.headerImage} />

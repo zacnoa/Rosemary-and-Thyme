@@ -16,12 +16,12 @@ export function ImageBox({ image, dispatch,type }) {
     const {contextSafe} =useGSAP(()=>{
         tl.current=gsap
         .timeline({paused:true},{defaults:{duration:0.5, ease:"none"}}).to(buttonRef.current,{
-            top:15,
-            left:10
-            
+            x:10,
+            y:15
+
         },"<").to(shadowRef.current,{
-            top:0,
-            left:0
+            x:0,
+            y:0
         },"<").to([buttonRef.current,shadowRef.current],{
             backgroundColor:"#9ad6e2",
             duration:0.25,

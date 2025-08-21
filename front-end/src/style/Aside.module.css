@@ -45,49 +45,13 @@
     margin-top: 2rem;
 }
 
-.button, .shadow {
-    width: 100%;
-    height: 50px;
-    font-size: 2.4rem;
-}
-
-
-.shadow {
-    background-color: #67C2D4;
-    position: absolute;
-    left: -10px;
-    top: 10px;
-    color: #67C2D4;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: -1;
-    cursor: pointer;
-}
-
-.button {
-    background-color: #CB625F;
-    border: none;
-    font-weight: bold;
-    color: #FFFFFF;
-    position: absolute;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 @media only screen and (max-width: 600px) {
     .buttonContainer {
         max-width:80px;
         width: 35%;
     }
-    .button, .shadow {
-        width: 100%;
-        height: 30px;
-        font-size: 1.2rem;
-    }
+    
     .listbutton {
         width: 3rem;
         height: 3rem;
@@ -105,10 +69,7 @@
     .asidecontainer{
         width: 100%;
     }
-    .shadow,.button {
-        font-size: 2rem;
-        height: 40px;
-    }
+   
 }
 
 @media only screen and (min-width:1440px)

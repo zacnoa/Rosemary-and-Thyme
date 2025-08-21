@@ -1,17 +1,8 @@
-.container {
-    width: auto;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-
+.buttonContainer{
+    width:100%;
 }
 
-.buttonContainer {
-    width:20%;
-    position: relative;
-    align-self: flex-end;
 
-}
 
 .button, .shadow {
     width: 100%;
@@ -19,10 +10,11 @@
     font-size: 1.5rem;
 }
 
+
 .shadow {
     background-color: #67C2D4;
     position: absolute;
-    transform:translate(-10px, 10px);
+    transform: translate(-10px, 10px);
     color: #67C2D4;
     font-weight: bold;
     display: flex;
@@ -44,10 +36,9 @@
     align-items: center;
 }
 
+
 @media only screen and (max-width:600px){
-   .buttonContainer{
-    width: 30%;
-   }
+
     .button, .shadow {
         font-size: 1rem;
         height: 30px;
@@ -55,21 +46,4 @@
     
 
 
-}
-
-@media only screen and (min-width: 1024px)
-{
-
-    .container{
-        width:85%;
-    }
-    .buttonContainer{
-        width: 20%;
-    }
-}
-@media only screen and (min-width: 1440px)
-{
-    .buttonContainer{
-        max-width: 180px;
-    }
 }

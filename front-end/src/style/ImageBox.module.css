@@ -68,8 +68,7 @@ input::file-selector-button{
 .shadow {
     background-color: #67C2D4;
     position: absolute;
-    left: 10px;
-    top: 10px;
+    transform: translate(10px, 10px);
     color: #67C2D4;
     font-weight: bold;
     display: flex;

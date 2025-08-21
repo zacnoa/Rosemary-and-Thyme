@@ -3,10 +3,13 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    row-gap:4rem;
+    justify-content: space-between;
 }
 
 
+h2{
+    margin-bottom: 1rem;
+}
 
 ul{
     font-size: 1.5rem;
@@ -16,11 +19,13 @@ ul{
     list-style: none;
     width:100%;
     justify-content: space-around;
-    row-gap: 2rem;
+    row-gap: 1rem;
+    max-height: 45vh;
+    overflow-y: auto;
+    transform: translateY(100%);
 }
 .box{
-    transform:translateY(100%);
-    opacity:0;
+    opacity:1;
     display:block;
     padding:1rem;
     cursor: pointer;
@@ -29,6 +34,7 @@ ul{
     display:flex;
     justify-content: center;
     align-items: center;
+    position:relative;
     
 }
 

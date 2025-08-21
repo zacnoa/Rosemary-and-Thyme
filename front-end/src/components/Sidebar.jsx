@@ -23,39 +23,43 @@ export function Sidebar({refreshTrigger, dispatch, NSFWtrigger, handleNSFWToggle
      let paths=splitPaths(`.${style.path}`);
      const badPath=paths.splice(3,1);
       t1.current=gsap.timeline({paused:true})
-      .to(sidebarRef.current,{
+      .fromTo(sidebarRef.current,{
+        translateX:"-100%",
+      },{
         translateX:0,
-        duration:1,
-        ease:"bounce.out"
+        duration:1.5,
+        ease:"power4.out"
       })
-      .to(overlayRef.current,{
+      .fromTo(overlayRef.current,{
+        translateX:"100%",
+      },{
         translateX:0,
-        duration:1,
-        ease:"bounce.out"
+        duration:1.5,
+        ease:"power4.out"
       },"<")
       .set(badPath[0], {fill:"#ffffff"}, "<")
       .fromTo(paths,
         {drawSVG:0},
-        {drawSVG:"100%", duration:1.5, ease:"power1.out",},
-      "<+1")
+        {drawSVG:"100%", duration:2, ease:"power1.out",},
+      "<+0.5")
       .fromTo(badPath[0],{drawSVG:0},{drawSVG:"100%",duration:1.5, ease:"power1.out"},"<")
-      .to(paths,{fill:"#3988A4",duration:0.5,delay:1}, "<")
-      
+      .to(paths,{fill:"#3988A4",duration:0.5}, "<+0.5")
+
 
 
       t2.current=gsap.timeline({paused:true})
       .to(paths, 
         {drawSVG:"0%",duration:1,ease:"power1.in",})
-        .to(paths,{fill:"transparent",duration:0.5},"<")
+      .to(paths,{fill:"transparent",duration:0.5},"<")
       .to(sidebarRef.current,{
         translateX:"-100%",
-        duration:1,
-        ease:"bounce.out"
-      },"<+0.5")
+        duration:0.5,
+        ease:"power4.out"
+      },"<+0.2")
       .to(overlayRef.current,{
         translateX:"100%",
-        duration:1,
-        ease:"bounce.out"
+        duration:0.5,
+        ease:"power4.out"
       },"<");
   });
   
@@ -63,7 +67,7 @@ export function Sidebar({refreshTrigger, dispatch, NSFWtrigger, handleNSFWToggle
 
   
 const handleSideBarShow=contextSafe(()=>{
-    setIsSidebarOpen(true);
+  setIsSidebarOpen(true);
   t1.current.restart(); 
 });
 const handleSideBarHide=contextSafe(()=>{ 

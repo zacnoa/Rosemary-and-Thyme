@@ -1,4 +1,4 @@
-
+import { resizeTextArea } from "../utilities/resizeTextArea";   
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -36,6 +36,7 @@ export function InputArea({value,dispatch,type}){
                 type:`edited_${type}`,
                 new_value:event.target.value
             });
+            resizeTextArea(event);
         
         
     }

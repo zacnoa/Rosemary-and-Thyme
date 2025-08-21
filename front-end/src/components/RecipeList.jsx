@@ -1,3 +1,4 @@
+
 import {useEffect,useState,useRef} from "react";
 import axios from "axios";
 import style from "../style/RecipeList.module.css";
@@ -37,17 +38,17 @@ export function RecipeList({dispatch,refreshTrigger,isSidebarOpen,NSFWtrigger})
     const textAreaRef = useRef();
 
 
-    const {contextSafe}=useGSAP(() => {
+    useGSAP(() => {
         
         t1.current=gsap.timeline({ paused: true })
-        .fromTo(`.${style.box}`,
+        .fromTo("ul",
             { opacity: 0, y: 100 },
-            { opacity: 1, y: 0, duration: 1, delay: 0.5, ease: "power1.in" },
+            { opacity: 1, y: 0, duration: 1,  ease: "power1.in" },
         "<")
         .fromTo(recentRecipesRef.current,
             {x:"-100%",opacity:0},
             {x:"0%",opacity:1, duration: 1, ease: "power1.Out" }
-        ,"<");    
+        ,"<")   
 
       return () => {
         if (t1.current) {
@@ -84,7 +85,7 @@ export function RecipeList({dispatch,refreshTrigger,isSidebarOpen,NSFWtrigger})
     return(
         <div className={style.recipelist}>
             <div className={style.search}>
-                <label for="search">What do you desire?</label>
+                <label htmlFor="search">What do you desire?</label>
                 <textarea id="search"  ref={textAreaRef} className={style.textarea}></textarea>
             </div>
             <h2 ref={recentRecipesRef}>{NSFWtrigger ? "Recent Needs" : "Recent Recipes"}</h2>

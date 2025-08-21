@@ -3,12 +3,16 @@
     resize:none;
     background-color: #FFFFFF;
     border: none;
-    font-size: 2.5rem;
+    font-size: 3rem;
     padding:15px;
     height: fit-content;
     min-height: 100px;
     line-height: 2rem;
-    
+    transition: height 0.2s ease-in-out;
+    overflow-y: hidden;
+    word-spacing: 2px;
+    letter-spacing: 2px;
+    line-height: 4rem;
 
 }
 
@@ -17,6 +21,8 @@
     min-height: 30px;
     height:50px;
     font-size: 1rem;
+    vertical-align: center;
+    padding: 5px;
   }
 
 }

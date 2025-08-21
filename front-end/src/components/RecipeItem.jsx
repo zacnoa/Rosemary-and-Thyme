@@ -1,4 +1,4 @@
-import react from 'react';
+import { resizeTextArea } from "../utilities/resizeTextArea";
 import style from "../style/RecipeItem.module.css";
 
 
@@ -11,6 +11,7 @@ export function RecipeItem({value, index, dispatch,type,NSFWtrigger}) {
             new_value:event.target.value,
             index:index
         })
+        resizeTextArea(event);
     }
     let ingredient="";
     let aside="";

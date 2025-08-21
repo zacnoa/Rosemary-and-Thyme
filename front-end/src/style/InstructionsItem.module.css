@@ -19,6 +19,7 @@ input::file-selector-button{
 .labelContainer {
     width: 25%;
     position: relative;
+    height: fit-content;
 }
 
 .label, .shadow {
