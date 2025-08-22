@@ -1,5 +1,5 @@
 import { resizeTextArea } from "../utilities/resizeTextArea";   
-import { useRef } from "react";
+import { useRef,useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import style from '../style/InputArea.module.css';
@@ -27,7 +27,9 @@ export function InputArea({value,dispatch,type}){
 
 
 
-
+    useEffect(()=>{
+        resizeTextArea(textareaRef.current);
+    }, [value])
     const handleChange=(event)=>{
         console.log("InputArea",type);
         console.log(value)
@@ -36,7 +38,6 @@ export function InputArea({value,dispatch,type}){
                 type:`edited_${type}`,
                 new_value:event.target.value
             });
-            resizeTextArea(event);
         
         
     }

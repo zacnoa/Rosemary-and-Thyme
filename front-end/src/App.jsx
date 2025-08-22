@@ -1,4 +1,4 @@
-import React, { useState, useRef, useReducer,useEffect } from 'react'
+import React, { useState, useReducer} from 'react'
 
 import './App.css'
 import axios from 'axios';
@@ -55,7 +55,7 @@ function App() {
         <Sidebar refreshTrigger={refreshTrigger} dispatch={dispatch} NSFWtrigger={NSFWtrigger} handleNSFWToggle={handleNSFWToggle} />
         <h2 class="title">{NSFWtrigger ? "Give It To Me" : "Write It In"}</h2>
 
-        <div style={{ marginBottom: "10rem", marginTop:"6rem", padding: "2rem" }}>
+        <div style={{ marginBottom: "10rem", padding: "2rem" }}>
           <TitleDescription title={recipe.title} description={recipe.description} dispatch={dispatch} image={recipe.headerImage} />
         </div>
 

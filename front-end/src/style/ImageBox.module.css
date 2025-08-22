@@ -1,6 +1,5 @@
 .container {
     width: 100%;
-    max-width:600px;
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
@@ -11,9 +10,9 @@
 .placeholder {
     width: 100%;
     max-width: 100%;
-    aspect-ratio: 7/5;
+    aspect-ratio: 5/3;
     background-color: #FFFFFF;
-    box-shadow: #67C2D4 20px 25px 0px;
+    box-shadow: #67C2D4 15px 15px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,6 +21,9 @@
 .image{
   width: 100%;
     max-width: 100%;
+    aspect-ratio: 5/3;
+    object-fit: contain;
+
 }
 .placeholder p {
     font-size: 2rem;
@@ -43,6 +45,7 @@ input::file-selector-button{
 
 .labelContainer {
     width: 35%;
+    max-width:150px;
     position: relative;
     margin-top: 4rem;
     align-self: flex-end;
@@ -93,7 +96,6 @@ input::file-selector-button{
     }
     .labelContainer {
         width: 45%;
-        left: 10%;
     }
     .container {
         max-width: 100%;
@@ -104,7 +106,7 @@ input::file-selector-button{
 {
 
     .container{
-        max-width: 400px;
+        
         row-gap: 1rem;
     }
     .shadow, .label {
@@ -117,7 +119,6 @@ input::file-selector-button{
 {
     .labelContainer{
         width: 45%;
-        left: 2%;
         margin-top: 2rem;
     }
     .placeholder{

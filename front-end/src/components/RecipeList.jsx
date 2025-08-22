@@ -4,9 +4,9 @@ import axios from "axios";
 import style from "../style/RecipeList.module.css";
 import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
-import { RoughEase } from "gsap/EasePack";
 
-gsap.registerPlugin(useGSAP, RoughEase);
+
+gsap.registerPlugin(useGSAP);
 
 
 
@@ -98,7 +98,7 @@ export function RecipeList({dispatch,refreshTrigger,isSidebarOpen,NSFWtrigger})
                                 <span className={style.tp}></span>
                                 <p>{recipe.title}</p>
                                 <span className={style.bt}></span>
-                                </li>
+                            </li>
                         );
                     })
                 }    

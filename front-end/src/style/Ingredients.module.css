@@ -9,25 +9,10 @@
 }
 
 .ingredients {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
     width: 40%;
 }
 
-.buttonContainer {
-    width:40%;
-    align-self: flex-end;
-    position: relative;
-    margin-top: 2rem;
-    max-width: 200px;
-}
 
-.button, .shadow {
-    width: 100%;
-    height: 50px;
-    font-size: 1.5rem;
-}
 
 .imageContainer {
     width: 60%;
@@ -75,14 +60,4 @@
     .imageContainer {
         width: 50%;
     }
-    .buttonContainer {
-        width: 50%;
-        width:140px;
-    }
-}
-@media only screen and (min-width:1440px)
-{
-  .buttonContainer{
-    max-width: 200px;
-  }
 }

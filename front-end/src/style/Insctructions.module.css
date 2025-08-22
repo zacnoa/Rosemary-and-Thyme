@@ -5,11 +5,22 @@
     flex-direction: column;
 
 }
+.instructionsItemContainer{
+    display:flex;
+    row-gap:3rem;
+    flex-direction: column;
+}
+.textArea{
+    width:100%;
+    display:flex;
+    column-gap: 3rem;
+
+}
 
 .buttonContainer {
     width:20%;
     position: relative;
-    align-self: flex-end;
+    align-self: center;
 
 }
 
@@ -44,15 +55,124 @@
     align-items: center;
 }
 
+
+.listbutton{
+    width: 4rem;
+    height:4rem;
+    background-color: #FFFFFF;
+    position:relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: #67C2D4 -10px 8px 0px;
+    align-self: center;
+    flex-shrink: 0;
+    flex-grow: 0;   
+    
+
+}
+.number{
+    display:inline-block;
+    font-size: 3rem;
+    white-space: nowrap ;
+}
+
+.image{
+    width:60%;
+    height: auto;
+    align-self: center;
+    margin-bottom:3rem;
+    object-fit: contain;                                                                        
+    aspect-ratio: 16/9;   
+}
+
+
+
+
+input[type="file"]{
+    color:transparent;
+    display:none;
+    width:0;
+    height: 0;
+}
+input::file-selector-button{
+    display:none;
+    width:0;
+    height: 0;
+}
+
+.labelContainer {
+    width: 25%;
+    position: relative;
+    height: fit-content;
+}
+
+.label, .shadow {
+    width: 100%;
+    height: 3rem;
+    font-size: 1.2rem;
+}
+
+.label {
+    background-color: #FFFFFF;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #CB625F;
+    cursor: pointer;
+    position: absolute;
+    height: 50px;
+    font-size: 2rem;
+    width: 100%;
+
+}
+
+.shadow {
+    background-color: #67C2D4;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #67C2D4;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    font-size: 2rem;
+}
+
+
 @media only screen and (max-width:600px){
    .buttonContainer{
     width: 30%;
    }
-    .button, .shadow {
-        font-size: 1rem;
-        height: 30px;
+    .listbutton {
+        width: 3rem;
+        height: 3rem;
+        box-shadow: #67C2D4 -5px 5px 0px;
+        
     }
-    
+    .number {
+        font-size: 2rem;
+    }
+    .image{
+        width:100%;
+    }
+    .labelContainer {
+        width: 44%;
+        max-width: 90px;
+        height: 30px;
+        position: relative;
+    }
+    .label, .shadow {
+        width: 100%;
+        height: 3rem;
+        font-size: 1rem;
+    }
 
 
 }
@@ -66,10 +186,22 @@
     .buttonContainer{
         width: 20%;
     }
+    
+}
+@media only screen and (min-width:601px) and (max-width: 1024px)
+{
+    .label, .shadow {
+        font-size: 1.2rem;
+        height: 40px;
+
+    }
 }
 @media only screen and (min-width: 1440px)
 {
     .buttonContainer{
         max-width: 180px;
     }
+     .labelContainer{
+    max-width: 220px;
+   }
 }
