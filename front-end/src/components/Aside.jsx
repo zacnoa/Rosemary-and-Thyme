@@ -27,7 +27,7 @@ export function Aside({dispatch,aside,image})
                         <div className={style.aside}  key={index}>
                             <div className={style.listbutton}><p className={style.number}>{index+1}</p></div>   
                             <div className={style.textarea}>
-                                <RecipeItem index={index} value={item} dispatch={dispatch} type={"aside"} />    
+                                <RecipeItem array={[""]} index={index} value={item} dispatch={dispatch} type={"aside"} />    
                             </div>
                         </div>
                     )

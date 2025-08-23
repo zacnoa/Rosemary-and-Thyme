@@ -1,14 +1,14 @@
 import {useGSAP} from "@gsap/react";
 import {useRef} from "react";
 import gsap from "gsap";
-import{RecipeItem} from "./RecipeItem.jsx";
 import style from "../style/InstructionsItem.module.css"
-import style1 from "../style/ImageBox.module.css";
+import {AutoResizeTextArea} from "../components/AutoResizeTextArea"
+import {Button} from "../components/Button"
 
 
 gsap.registerPlugin(useGSAP);
 
-export function InstructionsItem({index,value,dispatch,image})
+export function InstructionsItem({index,value,dispatch,image,handleClick,NSFWtrigger,lastFlag})
 {
 
 
@@ -74,8 +74,13 @@ export function InstructionsItem({index,value,dispatch,image})
                 <div className={style.container}>   
                     <div className={style.textarea}>
                     <div  className={style.listbutton}><p className={style.number}>{index+1}</p></div>
-                    <RecipeItem key={index} index={index} value={value} dispatch={dispatch} type={"instruction"} />
-                    
+                    <div className={style.inputContainer}>
+                        <AutoResizeTextArea value={value} dispatch={dispatch} index={index} type={"instruction"} NSFWtrigger={NSFWtrigger} />
+                        <div className={style.buttonContainer}>
+                            <Button handleClick={handleClick} text={lastFlag ? "Delete Step": "Next Step"}/>
+                        </div>
+                    </div>
+
                     <div className={style.labelContainer}  onMouseEnter={onHover} onMouseLeave={onLeave}>
                         <label   htmlFor={index}>
                             <div className={style.label} ref={buttonRef}>

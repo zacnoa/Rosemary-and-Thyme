@@ -1,18 +1,13 @@
-import { resizeTextArea } from "../utilities/resizeTextArea";
+
 import style from "../style/RecipeItem.module.css";
+import { AutoResizeTextArea } from "./AutoResizeTextArea";
+import {Button} from "../components/Button.jsx"
 
 
-export function RecipeItem({value, index, dispatch,type,NSFWtrigger}) {
+export function RecipeItem({array, dispatch,type,NSFWtrigger,handleClick}) {
 
-
-    const handleChange=(event)=>{
-        dispatch({
-            type:`edited_${type}`,
-            new_value:event.target.value,
-            index:index
-        })
-        resizeTextArea(event);
-    }
+        if(!array) console.log("array is null");
+   
     let ingredient="";
     let aside="";
     let instructions="";
@@ -29,14 +24,23 @@ export function RecipeItem({value, index, dispatch,type,NSFWtrigger}) {
         aside="What Else Do You Need?";
         instructions="How Do You Need It?"  
     }
-
+    
 
 
 
 return(
-        <textarea value={value} onChange={handleChange} className={style.textarea} placeholder={type==="ingredient" ? ingredient :type==="aside" ? aside: instructions}>
-
-        </textarea>
+        <div className={style.container}>
+         {
+             array.map((item,index) => {
+                 return (
+                     <AutoResizeTextArea key={index} index={index} value={item}  dispatch={dispatch} NSFWtrigger={NSFWtrigger} type={type}/>
+                 );
+             })
+         }
+        <div  className={style.buttonContainer}>
+            <Button handleClick={handleClick} text={"Next Step"}/>
+        </div>
+         </div>
     );
 
 }

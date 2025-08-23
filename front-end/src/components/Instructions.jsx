@@ -1,7 +1,7 @@
 
 import { InstructionsItem } from "./InstructionsItem.jsx";
 import style from "../style/Insctructions.module.css";
-import { Button } from "../components/Button.jsx";
+import {useState} from "react";
 
 
 
@@ -9,14 +9,20 @@ import { Button } from "../components/Button.jsx";
 
 
 
-export function Instructions({instructions,dispatch})
+export function Instructions({instructions,dispatch,NSFWtrigger})
 {
    
 
-
     const handleClick=()=>{
+        console.log("adding instruction");
         dispatch({
             type:"added_instruction"
+        })
+    }
+    const handleDelete=(event)=>{
+        dispatch({
+            type:"deleted_instruction",
+            index:event.target.index
         })
     }
 
@@ -24,14 +30,12 @@ export function Instructions({instructions,dispatch})
         <div className={style.container}>
         {
             instructions.map((instruction,index)=>{
+                
                 return(
-                    <InstructionsItem key={index} index={index} value={instruction.value} dispatch={dispatch} image={instruction.image}  />
+                    <InstructionsItem handleClick={(index===instructions.length-1) ? handleClick : handleDelete} lastFlag={(index===instructions.length-1 && instructions.length===0)} key={index} index={index} value={instruction.value} dispatch={dispatch} image={instruction.image} NSFWtrigger={NSFWtrigger}  />
                 )
             })
         }
-        <div  className={style.buttonContainer}>
-            <Button handleClick={handleClick} text={"Next Step"}/>
-        </div>
         </div>
 
 

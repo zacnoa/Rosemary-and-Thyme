@@ -11,6 +11,7 @@ gsap.registerPlugin(useGSAP);
 export function Ingredients({ingredients,dispatch,image,NSFWtrigger}) 
 {
 
+  if(!ingredients) console.log("No ingredients provided");
     const handleClick=()=>{
         console.log("Adding ingredient");
         dispatch({
@@ -23,15 +24,8 @@ export function Ingredients({ingredients,dispatch,image,NSFWtrigger})
 
     <div className={style.container}>
         <div className={style.ingredients}>
-            {
-                ingredients.map((ingredient,index)=>
-                <RecipeItem  key={index} index={index} value={ingredient} dispatch={dispatch} type={"ingredient"} NSFWtrigger={NSFWtrigger} />
-                )
-            }
-            <div className={style.buttonContainer} >
-                <Button handleClick={handleClick} text={"Add Ingredient"} />
-            </div>
-        </div>
+        <RecipeItem array={ingredients} dispatch={dispatch} type={"ingredient"} NSFWtrigger={NSFWtrigger} handleClick={handleClick} />
+        </div>        
         <div className={style.imageContainer}>
         <ImageBox image={image} dispatch={dispatch} type={"ingredientsImage"}/>
         </div>

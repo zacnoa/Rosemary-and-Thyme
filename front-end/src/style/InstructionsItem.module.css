@@ -91,7 +91,17 @@ input::file-selector-button{
     font-size: 3rem;
     white-space: nowrap ;
 }
+.buttonContainer{
+    width:20%;
+    align-self: flex-end;
+}
+.inputContainer{
+    display:flex;
+    flex-direction: column;
+    row-gap:1rem;
+    width:100%;
 
+}
 
 @media only screen and (max-width:600px){
     .container{

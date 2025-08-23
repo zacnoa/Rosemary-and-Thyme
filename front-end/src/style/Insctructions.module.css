@@ -60,9 +60,6 @@
 @media only screen and (min-width: 1024px)
 {
 
-    .container{
-        width:85%;
-    }
     .buttonContainer{
         width: 20%;
     }
