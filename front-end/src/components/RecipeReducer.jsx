@@ -66,6 +66,14 @@ export function RecipeReducer(state,action){
                     instructions:[...state.instructions,{value:"",image:null}]
                 }
             }
+            case "deleted_instruction":{
+                const newInstructions=[...state.instructions];
+                newInstructions.splice(action.index,1);
+                return{
+                    ...state,
+                    instructions:newInstructions
+                }
+            }
             case "edited_instructionsImage":{
                 const newInstructions=[...state.instructions];
                 newInstructions[action.index].image=action.image

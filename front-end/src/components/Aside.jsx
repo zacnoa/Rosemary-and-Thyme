@@ -7,7 +7,7 @@ import { Button } from "../components/Button.jsx";
 
 
 gsap.registerPlugin(useGSAP);
-export function Aside({dispatch,aside,image})
+export function Aside({dispatch,aside})
 {
 
 
@@ -22,19 +22,7 @@ export function Aside({dispatch,aside,image})
         return(
             <div className={style.container}>
                 <div className={style.asidecontainer}>
-                {
-                    aside.map((item,index)=>
-                        <div className={style.aside}  key={index}>
-                            <div className={style.listbutton}><p className={style.number}>{index+1}</p></div>   
-                            <div className={style.textarea}>
-                                <RecipeItem array={[""]} index={index} value={item} dispatch={dispatch} type={"aside"} />    
-                            </div>
-                        </div>
-                    )
-                }
-                <div  className={style.buttonContainer} >
-                            <Button handleClick={handleClick} text={"More"} />
-                </div>
+                    <RecipeItem array={aside} dispatch={dispatch} type={"aside"} handleClick={handleClick} />
                 </div>
                 
             

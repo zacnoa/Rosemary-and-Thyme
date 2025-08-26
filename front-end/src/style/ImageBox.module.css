@@ -22,6 +22,8 @@
 .image{
   width: 100%;
     max-width: 100%;
+    aspect-ratio: 7/5;
+    object-fit: cover;
 }
 .placeholder p {
     font-size: 2rem;
@@ -104,7 +106,6 @@ input::file-selector-button{
 {
 
     .container{
-        max-width: 400px;
         row-gap: 1rem;
     }
     .shadow, .label {

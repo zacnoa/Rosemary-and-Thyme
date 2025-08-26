@@ -20,6 +20,7 @@ export function Instructions({instructions,dispatch,NSFWtrigger})
         })
     }
     const handleDelete=(event)=>{
+        console.log("deleteing instruction");
         dispatch({
             type:"deleted_instruction",
             index:event.target.index
@@ -32,7 +33,7 @@ export function Instructions({instructions,dispatch,NSFWtrigger})
             instructions.map((instruction,index)=>{
                 
                 return(
-                    <InstructionsItem handleClick={(index===instructions.length-1) ? handleClick : handleDelete} lastFlag={(index===instructions.length-1 && instructions.length===0)} key={index} index={index} value={instruction.value} dispatch={dispatch} image={instruction.image} NSFWtrigger={NSFWtrigger}  />
+                    <InstructionsItem handleClick={(index===instructions.length-1) ? handleClick : handleDelete} lastFlag={(index!==instructions.length-1)} key={index} index={index} value={instruction.value} dispatch={dispatch} image={instruction.image} NSFWtrigger={NSFWtrigger}  />
                 )
             })
         }

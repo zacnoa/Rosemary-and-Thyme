@@ -53,9 +53,9 @@ function App() {
 
 
         <Sidebar refreshTrigger={refreshTrigger} dispatch={dispatch} NSFWtrigger={NSFWtrigger} handleNSFWToggle={handleNSFWToggle} />
-        <h2 class="title">{NSFWtrigger ? "Give It To Me" : "Write It In"}</h2>
+        <div className="container"><h2 className="title">{NSFWtrigger ? "Give It To Me" : "Write It In"}</h2></div>
 
-        <div style={{ marginBottom: "10rem", marginTop:"6rem", padding: "2rem" }}>
+        <div className="container" style={{ marginBottom: "10rem", marginTop:"6rem", padding: "2rem" }}>
           <TitleDescription title={recipe.title} description={recipe.description} dispatch={dispatch} image={recipe.headerImage} />
         </div>
 
@@ -74,7 +74,7 @@ function App() {
           </text>
         </svg>
 
-        <div style={{ padding: "2rem" }}>
+        <div className="container" style={{ padding: "2rem" }}>
           <Ingredients ingredients={recipe.ingredients} dispatch={dispatch} image={recipe.ingredientsImage} NSFWtrigger={NSFWtrigger} />
         </div>
 
@@ -92,7 +92,7 @@ function App() {
         </svg>
         </div>
 
-        <div style={{ marginBottom: "15rem", padding: "2rem" }}>
+        <div className="container" style={{ marginBottom: "15rem", padding: "2rem" }}>
           <Instructions instructions={recipe.instructions} dispatch={dispatch} NSFWtrigger={NSFWtrigger} />
         </div>
 
@@ -105,7 +105,7 @@ function App() {
               <text  x={NSFWtrigger ? "255" : "220"} y="300" fill="#3988a4" fontWeight="bold" fontSize="80">{NSFWtrigger ? "E":"I"}</text>
             </svg>
           </div>
-          <div className="aside">
+          <div className="aside container">
             <Aside dispatch={dispatch} aside={recipe.aside} image={recipe.asideImage} NSFWtrigger={NSFWtrigger}  />
           </div>
         </div>

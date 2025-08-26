@@ -4,13 +4,15 @@
     box-sizing: border-box;
     font-family:"Montserrat Alternates", sans-serif;
 }
-
+.container{
+    width:100%;
+}
 .title{
     margin-top: 1rem;
     font-size: 12rem;
     margin-right: 2rem;
     color:#3988A4;
-    align-self: flex-end;
+    text-align: right;
     font-weight: bold;
     font-family: "Playfair";
 }
@@ -25,19 +27,20 @@ svg text{
 html{
     width:100%;
     font-size: 12px;
-    max-width: 1600px;
+    max-width: 2000px;
     margin: 0 auto;
 }
 main{
     display:flex;
     flex-direction: column;
+    align-items: center;
 }
 
 
 
 
 body {
-    background-color: #D0944D;
+    background-color: #D0944D;      
     overflow-x: hidden;
 
 }
