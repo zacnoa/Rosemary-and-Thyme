@@ -1,17 +1,25 @@
-const express=require("express");
+
+import "./loadEnvironment.js";
+import express from "express";
+import cors from "cors";
+import db from "./db/conn.js";
+import recipesRoutes from "./routes/recipes.js";
 const app=express();
-const cors=require("cors");
 const corsOptions={
     origin:"http://localhost:5173",
 
 };
 
-
+const PORT=process.env.PORT || 4000;
 const recipesID={};
 const recipes={};
 
 app.use(cors(corsOptions));
 app.use(express.json());
+
+
+app.use("/recipes",recipesRoutes);
+
 
 
 app.post("/recipe",(req,res)=>{
@@ -39,6 +47,6 @@ app.get("/recipe/:id",(req,res)=>{
 
 
 
-app.listen(4000,()=>{
-    console.log("Server is running on port 4000");
+app.listen(PORT,()=>{
+    console.log(`Server is running on port ${PORT}`);
 });
