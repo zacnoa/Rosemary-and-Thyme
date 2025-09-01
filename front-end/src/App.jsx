@@ -25,7 +25,7 @@ function App() {
 
   const handleSubmit = () => {
     console.log(recipe);
-    axios.post("http://localhost:4000/recipe", recipe)
+    axios.post("http://localhost:4000/recipes/newrecipe", recipe)
       .then((response) => {
         console.log("Recipe saved successfully:", response.data);
       })
@@ -55,7 +55,7 @@ function App() {
         <Sidebar refreshTrigger={refreshTrigger} dispatch={dispatch} NSFWtrigger={NSFWtrigger} handleNSFWToggle={handleNSFWToggle} />
         <div className="container"><h2 className="title">{NSFWtrigger ? "Give It To Me" : "Write It In"}</h2></div>
 
-        <div className="container" style={{ marginBottom: "10rem", marginTop:"6rem", padding: "2rem" }}>
+        <div className="container">
           <TitleDescription title={recipe.title} description={recipe.description} dispatch={dispatch} image={recipe.headerImage} />
         </div>
 
@@ -74,7 +74,7 @@ function App() {
           </text>
         </svg>
 
-        <div className="container" style={{ padding: "2rem" }}>
+        <div className="container">
           <Ingredients ingredients={recipe.ingredients} dispatch={dispatch} image={recipe.ingredientsImage} NSFWtrigger={NSFWtrigger} />
         </div>
 
@@ -92,7 +92,7 @@ function App() {
         </svg>
         </div>
 
-        <div className="container" style={{ marginBottom: "15rem", padding: "2rem" }}>
+        <div className="container">
           <Instructions instructions={recipe.instructions} dispatch={dispatch} NSFWtrigger={NSFWtrigger} />
         </div>
 

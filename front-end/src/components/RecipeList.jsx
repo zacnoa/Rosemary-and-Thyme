@@ -69,8 +69,8 @@ export function RecipeList({dispatch,refreshTrigger,isSidebarOpen,NSFWtrigger})
     }, [isSidebarOpen]);
     
 
-    const handleRecipeClick=id=>{
-        axios.get(`http://localhost:4000/recipe/${id}`)
+    const handleRecipeClick=_id=>{
+        axios.get(`http://localhost:4000/recipes/${_id}`)
         .then(response=>{
             dispatch({
                 type:"request_recipe",
@@ -91,10 +91,10 @@ export function RecipeList({dispatch,refreshTrigger,isSidebarOpen,NSFWtrigger})
             <h2 ref={recentRecipesRef}>{NSFWtrigger ? "Recent Needs" : "Recent Recipes"}</h2>
             <ul>
                 {
-                    recipes.map((recipe,index)=>{
+                    recipes.map((recipe)=>{
                         return(
 
-                            <li  className={style.box} key={index}  onClick={()=>handleRecipeClick(recipe.id)}>
+                            <li  className={style.box} key={recipe._id}  onClick={()=>handleRecipeClick(recipe._id)}>
                                 <span className={style.tp}></span>
                                 <p>{recipe.title}</p>
                                 <span className={style.bt}></span>

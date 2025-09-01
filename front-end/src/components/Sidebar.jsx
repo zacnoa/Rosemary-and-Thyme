@@ -69,10 +69,12 @@ export function Sidebar({refreshTrigger, dispatch, NSFWtrigger, handleNSFWToggle
 const handleSideBarShow=contextSafe(()=>{
   setIsSidebarOpen(true);
   t1.current.restart(); 
+  document.querySelector("body").style.overflowY="hidden";
 });
 const handleSideBarHide=contextSafe(()=>{ 
   setIsSidebarOpen(false);
   t2.current.restart();
+  document.querySelector("body").style.overflowY="auto";
 });
 
 

@@ -82,12 +82,7 @@ export function RecipeReducer(state,action){
                     instructions:newInstructions
                 }
             }
-            case "edited_asideImage":{
-                return{
-                    ...state,
-                    asideImage:action.image
-                }
-            }
+            
             case "edited_aside":{
                 const newAside=[...state.aside];
                 newAside[action.index]=action.new_value;
