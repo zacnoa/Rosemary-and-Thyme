@@ -36,7 +36,7 @@ export function InputArea({value,dispatch,type}){
                 type:`edited_${type}`,
                 new_value:event.target.value
             });
-            resizeTextArea(event);
+            resizeTextArea(textareaRef.current);
         
         
     }

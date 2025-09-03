@@ -4,7 +4,7 @@ import { AutoResizeTextArea } from "./AutoResizeTextArea";
 import {Button} from "../components/Button.jsx"
 
 
-export function RecipeItem({array, dispatch,type,NSFWtrigger,handleClick}) {
+export function RecipeItem({array, dispatch,type,NSFWtrigger,handleAdd,handleDelete}) {
 
         if(!array) console.log("array is null");
    
@@ -33,13 +33,16 @@ return(
          {
              array.map((item,index) => {
                  return (
-                     <AutoResizeTextArea key={index} index={index} value={item}  dispatch={dispatch} NSFWtrigger={NSFWtrigger} type={type}/>
+                    <div className={style.inputContainer}>
+                        <AutoResizeTextArea key={index} index={index} value={item}  dispatch={dispatch} NSFWtrigger={NSFWtrigger} type={type}/>
+                        <div  className={style.buttonContainer}>
+                            <Button handleClick={(index===array.length-1) ? handleAdd : handleDelete} text={index!==array.length-1 ? "Delete Step": "Next Step"}/>
+                        </div>
+                    </div>
                  );
              })
+             
          }
-        <div  className={style.buttonContainer}>
-            <Button handleClick={handleClick} text={"Next Step"}/>
-        </div>
          </div>
     );
 
