@@ -1,10 +1,10 @@
-
 import {useEffect,useState,useRef} from "react";
 import axios from "axios";
 import style from "../style/RecipeList.module.css";
 import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
 import { RoughEase } from "gsap/EasePack";
+import _ from "lodash";
 
 gsap.registerPlugin(useGSAP, RoughEase);
 
@@ -18,6 +18,8 @@ export function RecipeList({dispatch,refreshTrigger,isSidebarOpen,NSFWtrigger})
 
 
     const [recipes,setRecipes]=useState([]);
+    const [searchResults,setSearchResults]=useState([]);
+    const [isSearching,setIsSearching]=useState(false);
     const fetchRecipes=()=>
     {
         axios.get("http://localhost:4000/recipes")
@@ -81,17 +83,32 @@ export function RecipeList({dispatch,refreshTrigger,isSidebarOpen,NSFWtrigger})
             console.error("Error fetching recipe:",error);
         });
     }
+    const debouncedSearch = _.debounce((value) => {
+        axios.get(`http://localhost:4000/recipes/search?q=${value}`)
+          .then(response => setSearchResults(response.data))
+          .catch(error => console.error("Error fetching search results:", error));
+          console.log(searchResults);
+      }, 400);
+      
+    const handleSearch = (event) => {
+        const value = event.target.value;
+        if (value.length >= 3) {
+            debouncedSearch(value);
+        } else {
+            setSearchResults([]);
+        }
+    };
 
     return(
         <div className={style.recipelist}>
             <div className={style.search}>
                 <label htmlFor="search">What do you desire?</label>
-                <textarea id="search"  ref={textAreaRef} className={style.textarea}></textarea>
+                <textarea id="search"  ref={textAreaRef} className={style.textarea} onChange={handleSearch} onFocus={() => setIsSearching(true)} onBlur={() => setIsSearching(false)}></textarea>
             </div>
             <h2 ref={recentRecipesRef}>{NSFWtrigger ? "Recent Needs" : "Recent Recipes"}</h2>
             <ul>
                 {
-                    recipes.map((recipe)=>{
+                    (isSearching ? searchResults : recipes).map((recipe)=>{
                         return(
 
                             <li  className={style.box} key={recipe._id}  onClick={()=>handleRecipeClick(recipe._id)}>

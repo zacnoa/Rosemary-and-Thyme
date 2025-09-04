@@ -33,8 +33,8 @@ return(
          {
              array.map((item,index) => {
                  return (
-                    <div className={style.inputContainer}>
-                        <AutoResizeTextArea key={index} index={index} value={item}  dispatch={dispatch} NSFWtrigger={NSFWtrigger} type={type}/>
+                    <div className={style.inputContainer} key={index}>
+                        <AutoResizeTextArea  index={index} value={item}  dispatch={dispatch} NSFWtrigger={NSFWtrigger} type={type}/>
                         <div  className={style.buttonContainer}>
                             <Button handleClick={(index===array.length-1) ? handleAdd : handleDelete} text={index!==array.length-1 ? "Delete Step": "Next Step"}/>
                         </div>
