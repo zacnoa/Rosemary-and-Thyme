@@ -10,6 +10,7 @@ import { Aside } from "./components/Aside.jsx";
 import { Sidebar } from "./components/Sidebar.jsx";
 import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
+import API_URL from '../api-url.js';
 
 gsap.registerPlugin(useGSAP);
 
@@ -25,7 +26,7 @@ function App() {
 
   const handleSubmit = () => {
     console.log(recipe);
-    axios.post("http://localhost:4000/recipes/newrecipe", recipe)
+    axios.post(`${API_URL}/recipes/newrecipe`, recipe)
       .then((response) => {
         console.log("Recipe saved successfully:", response.data);
       })
