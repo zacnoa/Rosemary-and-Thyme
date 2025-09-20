@@ -6,7 +6,7 @@ import cors from "cors";
 import recipesRoutes from "./routes/recipes.js";
 const app=express();
 const corsOptions={
-    origin:["http://localhost:5173", "https://zacnoa.github.io/Rosemary-and-Thyme"],
+    origin:["http://localhost:5173", "https://zacnoa.github.io"],
 
 };
 
