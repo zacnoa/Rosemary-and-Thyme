@@ -88,7 +88,9 @@ const  recipeFormator= async (req)=>
     console.error("Error in recipeFormator:", error);
     throw error;
   }
+  console.log(newRecipe);
   return newRecipe;
+
 }
 
 
@@ -157,6 +159,7 @@ router.get("/search", async (req, res) => {
 
 router.post("/newrecipe", upload.any(), async (req, res) => {
   const newRecipe=await recipeFormator(req);
+  console.log(newRecipe);
   let collection = db.collection("recipes");
   let result = await collection.insertOne(newRecipe);
   res.status(201).json(result);
