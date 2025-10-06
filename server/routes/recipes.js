@@ -160,12 +160,9 @@ router.post("/newrecipe", upload.any(), async (req, res) => {
   const newRecipe=await recipeFormator(req);
   console.log("Recipe to be saved:",newRecipe);
   let collection = db.collection("recipes");
-  let result = await collection.insertOne(newRecipe)
-  .then(console.log("Recipe inserted with ID:", result.insertedId))
-  .catch(err => {
-    console.error("Error inserting recipe:", err);
-    throw err;
-  });  
+  let result = await collection.insertOne(newRecipe);
+  console.log("Recipe inserted with ID:", result.insertedId);
+  res.status(200).json(result);
 });
 
 
