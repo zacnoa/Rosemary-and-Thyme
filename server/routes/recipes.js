@@ -155,19 +155,23 @@ router.get("/search", async (req, res) => {
 
 
 
-
 router.post("/newrecipe", upload.any(), async (req, res) => {
-  const newRecipe=await recipeFormator(req);
-  console.log("Recipe to be saved:",newRecipe);
+  const newRecipe = await recipeFormator(req);
+
+  // Očisti arraye od undefined (ali ne od null!)
+  newRecipe.instructions = (newRecipe.instructions || []).filter(v => v !== undefined);
+  newRecipe.ingredients = (newRecipe.ingredients || []).filter(v => v !== undefined);
+  newRecipe.aside = (newRecipe.aside || []).filter(v => v !== undefined);
+
+  console.log("Recipe to be saved:", newRecipe);
   let collection = db.collection("recipes");
   let result = await collection.insertOne(newRecipe)
-  .catch(error=>{
-    console.error("Error inserting recipe:", error);
-  });
+    .catch(error => {
+      console.error("Error inserting recipe:", error);
+    });
   console.log("Recipe inserted with ID:", result.insertedId);
   res.status(200).json(result);
 });
-
 
 
 router.get("/:id",async (req,res)=>{
