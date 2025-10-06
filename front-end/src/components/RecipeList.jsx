@@ -6,6 +6,7 @@ import {useGSAP} from "@gsap/react";
 import { RoughEase } from "gsap/EasePack";
 import _ from "lodash";
 import API_URL from "../../api-url.js";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(useGSAP, RoughEase);
 
@@ -114,7 +115,9 @@ export function RecipeList({dispatch,refreshTrigger,isSidebarOpen,NSFWtrigger})
 
                             <li  className={style.box} key={recipe._id}  onClick={()=>handleRecipeClick(recipe._id)}>
                                 <span className={style.tp}></span>
-                                <p>{recipe.title}</p>
+                                <Link to={`/recipes/${recipe._id}`}>
+                                    <p>{recipe.title}</p>
+                                </Link>
                                 <span className={style.bt}></span>
                                 </li>
                         );

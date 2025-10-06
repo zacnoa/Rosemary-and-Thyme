@@ -1,13 +1,14 @@
 import gsap from "gsap";
-import {useRef} from "react";
+import {useRef,useContext} from "react";
 import {useGSAP} from "@gsap/react";
 import style from "../style/Button.module.css";
+import { EditingContext } from "../utilities/editingContext.js";
 
 
 export function Button({handleClick,text})
 {
     
-
+    const editing=useContext(EditingContext);
     const buttonRef=useRef();
     const shadowRef=useRef();
     const tl=useRef();
@@ -49,7 +50,7 @@ export function Button({handleClick,text})
 
 
     return(
-        <div onClick={handleClick} onMouseEnter={onHover} onMouseLeave={onLeave} className={style.buttonContainer} >
+        <div onClick={handleClick} onMouseEnter={onHover} onMouseLeave={onLeave} className={editing ? style.buttonContainer : style.none} >
             <div ref={buttonRef} className={style.button}><p>{text}</p></div>
             <div  ref={shadowRef} className={style.shadow}><p>{text}</p></div>
         </div>

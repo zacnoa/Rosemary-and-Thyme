@@ -19,9 +19,9 @@ export function Ingredients({ingredients,dispatch,image,NSFWtrigger})
         });
     }
      const handleDelete=(event)=>{
-        console.log("deleteing instruction");
+        console.log("deleting ingredient");
         dispatch({
-            type:"deleted_instruction",
+            type:"deleted_ingredient",
             index:event.target.index
         })
     }

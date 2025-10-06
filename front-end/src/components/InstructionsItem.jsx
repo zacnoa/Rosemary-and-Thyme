@@ -1,9 +1,10 @@
 import {useGSAP} from "@gsap/react";
-import {useRef} from "react";
+import {useRef,useContext} from "react";
 import gsap from "gsap";
 import style from "../style/InstructionsItem.module.css"
 import {AutoResizeTextArea} from "../components/AutoResizeTextArea"
 import {Button} from "../components/Button"
+import { EditingContext } from "../utilities/editingContext.js";
 
 
 gsap.registerPlugin(useGSAP);
@@ -15,6 +16,7 @@ export function InstructionsItem({index,value,dispatch,image,handleClick,NSFWtri
     const buttonRef=useRef();
     const shadowRef=useRef();
     const tl=useRef();
+    const editing=useContext(EditingContext);
 
     const {contextSafe} =useGSAP(()=>{
         tl.current=gsap
@@ -63,7 +65,8 @@ export function InstructionsItem({index,value,dispatch,image,handleClick,NSFWtri
             dispatch({
                 type:"edited_instructionsImage",
                 image:fileUrl,
-                index: index
+                index: index,
+                file: file
             })
         }
     }
@@ -81,18 +84,18 @@ export function InstructionsItem({index,value,dispatch,image,handleClick,NSFWtri
                         </div>
                     </div>
 
-                    <div className={style.labelContainer}  onMouseEnter={onHover} onMouseLeave={onLeave}>
+                    <div className={editing ? style.labelContainer : style.none}  onMouseEnter={onHover} onMouseLeave={onLeave}>
                         <label   htmlFor={index}>
                             <div className={style.label} ref={buttonRef}>
-                                {image===null? <p   className={style.text}>Add Picture</p> : <p  className={style.text}>Change Picture</p>}
+                                {image.publicId===null && image.previewURL===null ? <p   className={style.text}>Add Picture</p> : <p  className={style.text}>Change Picture</p>}
                             </div>
                             <div className={style.shadow} ref={shadowRef}>
-                                {image===null? <p   className={style.text}>Add Picture</p> : <p  className={style.text}>Change Picture</p>}
+                                {image.publicId===null && image.previewURL===null ? <p   className={style.text}>Add Picture</p> : <p  className={style.text}>Change Picture</p>}
                             </div>
                         </label>
                     </div>
                 </div>
-                    <img src={image} className={style.image}/>
+                    {image.previewURL===null && image.publicId === null ? null : <img src={image.previewURL || `https://res.cloudinary.com/dfgde179c/image/upload/${image.publicId}`} className={style.image}/>}
                     <input  id={index} type="file" accept="image/jpeg, image/png, image/jpg" onChange={handleImageChange} />
                 </div>
                 

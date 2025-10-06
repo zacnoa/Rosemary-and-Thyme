@@ -1,12 +1,11 @@
 export const initialState={
     title:"",
     description:"",
-    headerImage:null,
-    ingredientsImage:null,
+    headerImage:{publicId:null,previewURL:null, file:null},
+    ingredientsImage:{publicId:null,previewURL:null, file:null},
     ingredients:[""],
-    instructions:[{value:"",image:null}],
+    instructions:[{value:"",image:{publicId:null,previewURL:null, file:null}}],
     aside:[""],
-    asideImage:null
 };
 
 
@@ -28,7 +27,7 @@ export function RecipeReducer(state,action){
             case "edited_headerImage":{
                 return{
                     ...state,
-                    headerImage:action.image
+                    headerImage:{...state.headerImage,previewURL:action.image,file:action.file}
                 }
             }
             case "added_ingredient":{
@@ -40,7 +39,7 @@ export function RecipeReducer(state,action){
             case "edited_ingredientsImage":{
                 return{
                     ...state,
-                    ingredientsImage:action.image
+                    ingredientsImage:{...state.ingredientsImage,previewURL:action.image,file:action.file}
                 }
             }
 
@@ -63,7 +62,7 @@ export function RecipeReducer(state,action){
             case "added_instruction":{
                 return{
                     ...state,
-                    instructions:[...state.instructions,{value:"",image:null}]
+                    instructions:[...state.instructions,{value:"",image:{publicId:null,previewURL:null, file:null}}]
                 }
             }
             case "deleted_instruction":{
@@ -76,7 +75,7 @@ export function RecipeReducer(state,action){
             }
             case "edited_instructionsImage":{
                 const newInstructions=[...state.instructions];
-                newInstructions[action.index].image=action.image
+                newInstructions[action.index].image={...newInstructions[action.index].image,previewURL:action.image,file:action.file};
                 return{
                     ...state,
                     instructions:newInstructions
@@ -97,11 +96,20 @@ export function RecipeReducer(state,action){
                     aside:[...state.aside,""]
                 }
             }
+            case "deleted_aside":{
+                const newAside=[...state.aside];
+                newAside.splice(action.index,1)
+                return {
+                    ...state,
+                    aside:newAside
+
+                }
+            }
 
             case "reset":{
                 return initialState;
             }
-            case "request_recipe":{
+            case "set_recipe":{
                 return action.object
             }
 

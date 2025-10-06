@@ -82,6 +82,9 @@ input::file-selector-button{
     height: 50px;
 }
 
+.none{
+    display:none;
+}
 
 @media only screen and (max-width: 600px){
    .labelContainer{

@@ -1,6 +1,8 @@
 import { resizeTextArea } from "../utilities/resizeTextArea";
 import style from "../style/AutoResizeTextArea.module.css";
 import {useEffect,useRef} from "react";
+import {useContext} from "react";
+import { EditingContext } from "../utilities/editingContext.js";
 
 
 
@@ -11,7 +13,7 @@ import {useEffect,useRef} from "react";
 export function AutoResizeTextArea({index,value,NSFWtrigger,type,dispatch}) 
 {
     
-
+    const editingContext=useContext(EditingContext);
     const textAreaRef = useRef();
 
     useEffect(()=>{
@@ -48,7 +50,7 @@ export function AutoResizeTextArea({index,value,NSFWtrigger,type,dispatch})
 
 
         return (
-        <textarea ref={textAreaRef} value={value} onChange={handleChange} className={style.textarea} placeholder={type==="ingredient" ? ingredient :type==="aside" ? aside: instructions}>
+        <textarea ref={textAreaRef} readOnly={!editingContext} value={value} onChange={handleChange} className={style.textarea} placeholder={type==="ingredient" ? ingredient :type==="aside" ? aside: instructions}>
         </textarea>
         )
 }
