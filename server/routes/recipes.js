@@ -73,14 +73,14 @@ const  recipeFormator= async (req)=>
     );
 
     // 3. Upisi public_id-ove u recipe.instructions
-    for (const { public_id, index } of instructionImagePublicIds) {
-      if (index !== null && newRecipe.instructions[index]) {
-        if (newRecipe.instructions[index].image.publicId) {
-          await cloudinary.uploader.destroy(newRecipe.instructions[index].image.publicId);
-        }
-        newRecipe.instructions[index].image = { publicId: public_id };
-      }
+    instructionImagePublicIds.forEach(async ({ public_id, index }) => {
+  if (index !== null && newRecipe.instructions[index]) {
+    if(newRecipe.instructions[index].image.publicId) {
+      await cloudinary.uploader.destroy(newRecipe.instructions[index].image.publicId);
     }
+    newRecipe.instructions[index].image = { publicId: public_id };
+  }
+});
 
     // 4. Upisi thumbnail public_id
     newRecipe.headerImage = { publicId: thumbnailPublicId };
