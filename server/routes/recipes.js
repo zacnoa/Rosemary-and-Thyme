@@ -27,7 +27,7 @@ const  recipeFormator= async (req)=>
           { resource_type: "image" },
           (error, result) => error ? reject(error) : resolve(result.public_id)
         ).end(thumbnailFile.buffer);
-      });
+    });
     }
 
     let ingredientsPublicId = recipe.ingredientsImage.publicId;
@@ -69,15 +69,14 @@ const  recipeFormator= async (req)=>
     );
 
     // 3. Upisi public_id-ove u recipe.instructions
-    instructionImagePublicIds.forEach(async ({ public_id, index }) => {
+    for (const { public_id, index } of instructionImagePublicIds) {
       if (index !== null && newRecipe.instructions[index]) {
-        if(newRecipe.instructions[index].image.publicId)
-        {
-           await cloudinary.uploader.destroy(newRecipe.instructions[index].image.publicId);
+        if (newRecipe.instructions[index].image.publicId) {
+          await cloudinary.uploader.destroy(newRecipe.instructions[index].image.publicId);
         }
         newRecipe.instructions[index].image = { publicId: public_id };
       }
-    });
+    }
 
     // 4. Upisi thumbnail public_id
     newRecipe.headerImage = { publicId: thumbnailPublicId };
@@ -166,8 +165,7 @@ router.post("/newrecipe", upload.any(), async (req, res) => {
   .catch(err => {
     console.error("Error inserting recipe:", err);
     throw err;
-  });
-  res.status(201).json(result);
+  });  
 });
 
 
