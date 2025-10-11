@@ -19,9 +19,9 @@
 }
 
 
- @media only screen and (max-width: 600px){
+ @media only screen and (max-width: 800px){
     .textarea{
-    height:70px;
+    height:clamp(70px, 15vw, 80px);
     box-shadow:  20px 12px 0px #CB625F;
     }
 }

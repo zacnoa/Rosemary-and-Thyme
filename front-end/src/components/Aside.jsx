@@ -27,7 +27,7 @@ export function Aside({dispatch,aside})
         return(
             <div className={style.container}>
                 <div className={style.asidecontainer}>
-                    <RecipeItem array={aside} dispatch={dispatch} type={"aside"} handleAdd={handleAdd} />
+                    <RecipeItem array={aside} dispatch={dispatch} type={"aside"} handleAdd={handleAdd} handleDelete={handleDelete} />
                 </div>
                 
             
