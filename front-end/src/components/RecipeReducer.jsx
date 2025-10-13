@@ -105,6 +105,14 @@ export function RecipeReducer(state,action){
 
                 }
             }
+            case "deleted_ingredient":{
+                const newIngredients=[...state.ingredients];
+                newIngredients.splice(action.index,1);
+                return{
+                    ...state,
+                    ingredients:newIngredients
+                }
+            }
 
             case "reset":{
                 return initialState;
