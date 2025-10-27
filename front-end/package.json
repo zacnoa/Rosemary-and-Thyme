@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package",
   "name": "front-end",
-  "homepage": "https://zacnoa.github.io/Rosemary-and-Thyme/",
+  "homepage": "https://rosemary-and-thyme-front-end.vercel.app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
