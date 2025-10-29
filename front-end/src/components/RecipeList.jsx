@@ -5,7 +5,6 @@ import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
 import { RoughEase } from "gsap/EasePack";
 import _ from "lodash";
-import API_URL from "../../api-url.js";
 import { Link } from "react-router-dom";
 
 gsap.registerPlugin(useGSAP, RoughEase);
@@ -24,7 +23,7 @@ export function RecipeList({dispatch,refreshTrigger,isSidebarOpen,NSFWtrigger})
     const [isSearching,setIsSearching]=useState(false);
     const fetchRecipes=()=>
     {
-        axios.get(`${API_URL}/recipes`)
+        axios.get(`${process.env.API_URL}/recipes`)
         .then(response=>{
             console.log("Recipes:", response.data); // Log the fetched recipes
             setRecipes(response.data); // Set the recipes state
@@ -72,9 +71,9 @@ export function RecipeList({dispatch,refreshTrigger,isSidebarOpen,NSFWtrigger})
       }
     }, [isSidebarOpen]);
     
-
+    API_URL
     const handleRecipeClick=_id=>{
-        axios.get(`${API_URL}/recipes/${_id}`)
+        axios.get(`${process.env.API_URL}/recipes/${_id}`)
         .then(response=>{
             dispatch({
                 type:"request_recipe",
@@ -86,7 +85,7 @@ export function RecipeList({dispatch,refreshTrigger,isSidebarOpen,NSFWtrigger})
         });
     }
     const debouncedSearch = _.debounce((value) => {
-        axios.get(`${API_URL}/recipes/search?q=${value}`)
+        axios.get(`${process.env.API_URL}/recipes/search?q=${value}`)
           .then(response => setSearchResults(response.data))
           .catch(error => console.error("Error fetching search results:", error));
           console.log(searchResults);
