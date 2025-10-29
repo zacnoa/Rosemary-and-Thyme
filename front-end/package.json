@@ -6,8 +6,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "rimraf dist && vite build && echo > dist/.nojekyll",
-    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
