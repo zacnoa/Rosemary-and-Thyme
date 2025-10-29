@@ -6,7 +6,7 @@ import RecipeEditor  from "./RecipeEditor";
 
 function App() {
   return (
-    <BrowserRouter basename="/Rosemary-and-Thyme">
+    <BrowserRouter>
       <Routes>
         {/* Ovo je ruta za tvoju glavnu stranicu za pisanje recepata */}
         <Route path="/" element={<RecipeEditor />} />
