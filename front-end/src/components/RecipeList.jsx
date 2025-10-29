@@ -71,7 +71,6 @@ export function RecipeList({dispatch,refreshTrigger,isSidebarOpen,NSFWtrigger})
       }
     }, [isSidebarOpen]);
     
-    API_URL
     const handleRecipeClick=_id=>{
         axios.get(`${process.env.API_URL}/recipes/${_id}`)
         .then(response=>{
