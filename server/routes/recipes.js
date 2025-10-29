@@ -1,6 +1,6 @@
 import db from "../db/conn.js";
 import express from "express";
-import { Double, ObjectId } from "mongodb";
+import { ObjectId } from "mongodb";
 import multer from "multer"; 
 import {v2 as cloudinary} from "cloudinary";
 import "../loadEnvironment.js"
