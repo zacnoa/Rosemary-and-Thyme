@@ -42,7 +42,7 @@ function RecipeEditor() {
 
 
     console.log(recipe);
-    axios.post(`${process.env.API_URL}/recipes/newrecipe`, formData)
+    axios.post(`${env.VITE_API_URL}/recipes/newrecipe`, formData)
       .then((response) => {
         console.log("Recipe saved successfully:", response.data);
       })
@@ -97,7 +97,7 @@ function RecipeEditor() {
     });
     formData.append("recipe",JSON.stringify(recipe));
 
-    axios.put(`${process.env.API_URL}/recipes/updaterecipe/${id}`, formData)
+    axios.put(`${env.VITE_API_URL}/recipes/updaterecipe/${id}`, formData)
       .then((response) => {
         console.log("Recipe updated successfully:", response.data);
       })
@@ -120,7 +120,7 @@ function RecipeEditor() {
     if (id) {
       setEditing(false);
       // Ako postoji ID u URL-u, fetch-uj recept sa tim ID-jem
-      axios.get(`${process.env.API_URL}/recipes/${id}`)
+      axios.get(`${env.VITE_API_URL}/recipes/${id}`)
         .then(response => {
           console.log("Fetched recipe:", response.data);
           dispatch({
