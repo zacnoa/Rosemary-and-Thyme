@@ -13,6 +13,7 @@ import {API_URL} from "../API_URL.js/";
 import { useParams} from 'react-router-dom';
 import {EditingContext} from "./utilities/editingContext.js"; 
 
+
 gsap.registerPlugin(useGSAP);
 
 function RecipeEditor() {
@@ -144,7 +145,7 @@ function RecipeEditor() {
     <>
       <main>
 
-      <EditingContext.Provider value={editing}>  
+      <EditingContext value={editing}>  
         <Sidebar refreshTrigger={refreshTrigger} dispatch={dispatch} NSFWtrigger={NSFWtrigger} handleNSFWToggle={handleNSFWToggle} />
         <div className="container"><h2 className="title">{NSFWtrigger ? "Give It To Me" : "Write It In"}</h2></div>
 
@@ -204,7 +205,7 @@ function RecipeEditor() {
         </div>
 
         <button className="submit" onClick={editing ? (id ? handleUpdate : handleSubmit) : handleEditToggle}><p>{editing  ? "FINISH" : "EDIT"}</p></button>
-        </EditingContext.Provider>
+        </EditingContext>
       </main>
 
 

@@ -1,8 +1,9 @@
 import { resizeTextArea } from "../utilities/resizeTextArea";   
-import { useRef } from "react";
+import { useRef,useContext } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import style from '../style/InputArea.module.css';
+import { EditingContext } from "../utilities/editingContext.js";                
 
 gsap.registerPlugin(useGSAP)
 
@@ -10,6 +11,7 @@ export function InputArea({value,dispatch,type}){
 
     const textareaRef=useRef();
     const {contextSafe} =useGSAP();
+    const editingContext=useContext(EditingContext);
  
     
     const onFocus=contextSafe(()=>{
@@ -43,7 +45,7 @@ export function InputArea({value,dispatch,type}){
 
 
     return(
-        <textarea ref={textareaRef} onFocus={onFocus} onBlur={onBlur} className={`${style.textarea} ${type==="title" ? style.title : style.description}`} value={value} onChange={handleChange} placeholder={type==="title" ? "Title..." : "Description..."}>
+        <textarea ref={textareaRef} onFocus={onFocus} onBlur={onBlur} readOnly={!editingContext} className={`${style.textarea} ${type==="title" ? style.title : style.description}`} value={value} onChange={handleChange} placeholder={type==="title" ? "Title..." : "Description..."}>
 
         </textarea>
     );
