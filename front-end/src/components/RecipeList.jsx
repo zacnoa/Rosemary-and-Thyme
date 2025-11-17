@@ -6,7 +6,7 @@ import {useGSAP} from "@gsap/react";
 import { RoughEase } from "gsap/EasePack";
 import _ from "lodash";
 import { Link } from "react-router-dom";
-import { API_URL } from "../../API_URL.js";
+import { API_URL } from "../utilities/API_URL.js";
 
 gsap.registerPlugin(useGSAP, RoughEase);
 

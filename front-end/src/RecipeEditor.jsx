@@ -9,7 +9,7 @@ import { Aside } from "./components/Aside.jsx";
 import { Sidebar } from "./components/Sidebar.jsx";
 import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
-import {API_URL} from "../API_URL.js/";
+import {API_URL} from "./utilities/API_URL.js"
 import { useParams} from 'react-router-dom';
 import {EditingContext} from "./utilities/editingContext.js"; 
 
